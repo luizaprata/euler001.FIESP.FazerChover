@@ -8,18 +8,19 @@
 
 #include <iostream>
 #include <vector>
-#include <cmath>
-#include <pthread.h> 
+#include <pthread.h>
 
 #include "libfreenect/libfreenect.hpp"
 
-#include <opencv2/opencv.hpp>
+
 
 #include <SFML/Graphics.hpp>
+#include "ResourcePath.hpp"
+#include "AnimatedSprite.hpp"
 
+#include <opencv2/opencv.hpp>
 
 using namespace cv;
-using namespace std;
 
 
 
@@ -66,7 +67,6 @@ public:
     // Do not call directly even in child
     void VideoCallback(void* _rgb, uint32_t timestamp)
     {
-        //		std::cout << "RGB callback" << std::endl;
         m_rgb_mutex.lock();
         uint8_t* rgb = static_cast<uint8_t*>(_rgb);
         rgbMat.data = rgb;
@@ -78,7 +78,6 @@ public:
     // Do not call directly even in child
     void DepthCallback(void* _depth, uint32_t timestamp)
     {
-        //		std::cout << "Depth callback" << std::endl;
         m_depth_mutex.lock();
         uint16_t* depth = static_cast<uint16_t*>(_depth);
         depthMat.data = (uchar*) depth;
@@ -140,103 +139,94 @@ private:
 int main(int argc, char **argv)
 {
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-    // Clear screen
-    window.clear();
+    sf::RenderWindow window(sf::VideoMode(1024, 768), "Fazer Chover");
+    window.setFramerateLimit(10);
     
-    // Update the window
-    window.display();
+    // Set the Icon
+    sf::Image icon;
+    if (!icon.loadFromFile(resourcePath() + "icon.png")) {
+        return -1;
+    }
+    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
     
     
-    bool die(false);
+    // Load a sprite to display
+    sf::Texture texture;
+    if (!texture.loadFromFile(resourcePath() + "bg_deserto.png")) {
+        std::cout << "fail load texture deserto" << std::endl;
+        return -1;
+    }
+    sf::Sprite sprite(texture);
+    
+    Animation walkingAnimationDown;
+    walkingAnimationDown.setSpriteSheet(texture);
+    walkingAnimationDown.addFrame(sf::IntRect(32, 0, 32, 32));
+    walkingAnimationDown.addFrame(sf::IntRect(64, 0, 32, 32));
+    walkingAnimationDown.addFrame(sf::IntRect(32, 0, 32, 32));
+    walkingAnimationDown.addFrame(sf::IntRect( 0, 0, 32, 32));
+    Animation* currentAnimation = &walkingAnimationDown;
+    // set up AnimatedSprite
+    AnimatedSprite animatedSprite(sf::seconds(0.2), true, false);
+    animatedSprite.setPosition(sf::Vector2f(1024,768));
+    sf::Clock frameClock;
+    
+    //kinect
+    Freenect::Freenect freenect;
+    MyFreenectDevice& device = freenect.createDevice<MyFreenectDevice>(0);
+    device.startVideo();
+    device.startDepth();
+    
+    //keyboard control
+    std::ostringstream file;
     string filename("snapshot");
     string suffix(".png");
     int i_snap(0);
     int freenect_angle(0);
     int current_freenect_angle(-1);
     
+    
+    //moviment sensor
     Mat depthMat(Size(640, 480), CV_16UC1);
     Mat depthf(Size(640, 480), CV_8UC1);
     Mat rgbMat(Size(640, 480), CV_8UC3, Scalar(0));
     Mat ownMat(Size(640, 480), CV_8UC3, Scalar(0));
-    
     Mat oldDepth;
     Mat differenceImage;
-    
-    // The next two lines must be changed as Freenect::Freenect
-    // isn't a template but the method createDevice:
-    // Freenect::Freenect<MyFreenectDevice> freenect;
-    // MyFreenectDevice& device = freenect.createDevice(0);
-    // by these two lines:
-    
-    Freenect::Freenect freenect;
-    MyFreenectDevice& device = freenect.createDevice<MyFreenectDevice>(0);
-    
-    namedWindow("rgb", CV_WINDOW_AUTOSIZE);
-    namedWindow("depth", CV_WINDOW_AUTOSIZE);
-    namedWindow("diff", CV_WINDOW_AUTOSIZE);
-    device.startVideo();
-    device.startDepth();
-    std::ostringstream file;
     int totalWhite = 0;
     int i = 0;
     int j = 0;
     double perc = 0;
     int rows = 0;
     int cols = 0;
-    
+    bool debugMode = false;
     double progress = 0;
     double w = 640;
     
-    
-    
-    //	sf::Clock Clock;
-    //	while (Clock.GetElapsedTime() < 5.f)
-    //	{
-    //		std::cout << Clock.GetElapsedTime() << std::endl;
-    //		sf::Sleep(0.5f);
-    //	}
-    //
-    //	return 0;
-    //
-    //
-    ////	sf::RenderWindow window(sf::VideoMode(640, 480), "SFML Application");
-    ////	sf::CircleShape shape;
-    ////	shape.setRadius(40.f);
-    ////	shape.setPosition(100.f, 100.f);
-    ////	shape.setFillColor(sf::Color::Cyan);
-    ////	while (window.isOpen())
-    ////	{
-    ////		sf::Event event;
-    ////		while (window.pollEvent(event))
-    ////		{
-    ////			if (event.type == sf::Event::Closed)
-    ////				window.close();
-    ////		}
-    ////		window.clear();
-    ////		window.draw(shape);
-    ////		window.display();
-    ////	}
-    //	return 0;
-    
-    while (!die)
+    //while
+    while (window.isOpen())
     {
         device.getVideo(rgbMat);
         device.getDepth(depthMat);
-        
         depthMat.convertTo(depthf, CV_8UC1, 255.0 / 2024.0);
-        
-        cv::imshow("depth", depthf);
+        if (debugMode) {
+            cv::imshow("depth", depthf);
+        }
         if (oldDepth.empty() == 0) {
             cv::absdiff(oldDepth, depthf, differenceImage);
-            cv::imshow("diff", differenceImage);
+            if (debugMode) {
+                cv::imshow("diff", differenceImage);
+            }
         }
+        depthMat.convertTo(oldDepth, CV_8UC1, 255.0 / 2024.0);
         
-        rows = differenceImage.rows;
-        cols = differenceImage.cols;
+        //animation
+        animatedSprite.play(*currentAnimation);
         
+        //contador da diferenca
         if (differenceImage.channels() == 1) {
+            rows = differenceImage.rows;
+            cols = differenceImage.cols;
             totalWhite = 0;
             for( i = 0; i < rows; ++i){
                 for( j = 0; j < cols; ++j ){
@@ -252,66 +242,99 @@ int main(int argc, char **argv)
                 progress += perc;
             }
         }
-        w = 640*progress/100;
-        //cout << progress << " = "<< w <<endl;
-        rectangle( rgbMat,
+        
+        //std::cout << progress << std::endl;
+        
+        
+        //show barra progresso
+        if (debugMode) {
+            w = 640*progress/100;
+            rectangle( rgbMat,
                   Point( 0, 240 ),
                   Point( w, 244),
                   Scalar( 0, 255, 255 ),
                   -1,
                   8 );
         
-        if (w > 640){
-            progress = 0;
-        }
-        
-        
-        cv::imshow("rgb", rgbMat);
-        
-        depthMat.convertTo(oldDepth, CV_8UC1, 255.0 / 2024.0);
-        
-        switch (waitKey(10))
-        {
-            case 27:// ESC // exit
-                cvDestroyWindow("rgb");
-                cvDestroyWindow("depth");
-                die = true;
-                break;
-            case 116: 	//'t' snapshot
-                file.str("");
-                file.clear();
-                file << filename << i_snap << suffix;
-                cv::imwrite(file.str(), rgbMat);
-                i_snap++;
-                break;
-            case 63232: // UP
-                cout << "UP" << endl;
-                freenect_angle++;
-                if (freenect_angle > 30) {
-                    freenect_angle = 30;
-                }
-                break;
-            case 114: // r
+            if (w > 640){
                 progress = 0;
-                break;
-            case 63233: // down
-                freenect_angle--;
-                if (freenect_angle < -30) {
-                    freenect_angle = -30;
+            }
+            cv::imshow("rgb", rgbMat);
+        }
+        
+        // Clear screen
+        window.clear();
+        
+        // Update the window
+        window.display();
+        
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            // Close window: exit
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+            
+            // Escape pressed: exit
+            if (event.type == sf::Event::KeyPressed) {
+                switch (event.key.code){
+                    case sf::Keyboard::Escape:// ESC // exit
+                        window.close();
+                        break;
+                    
+                    case sf::Keyboard::M: 	//show/hide mask'
+                        break;
+                    
+                    case sf::Keyboard::T: 	//snapshot
+                        file.str("");
+                        file.clear();
+                        file << filename << i_snap << suffix;
+                        cv::imwrite(file.str(), rgbMat);
+                        i_snap++;
+                        break;
+
+                    case sf::Keyboard::R: // reset
+                        progress = 0;
+                        break;
+                    
+                    case sf::Keyboard::D: //'d' has been pressed. this will debug mode
+                        debugMode = !debugMode;
+                        if (debugMode == false){
+                            std::cout<<"Debug mode disabled."<<std::endl;
+                            cvDestroyWindow("rgb");
+                            cvDestroyWindow("depth");
+                            cvDestroyWindow("diff");
+                        } else {
+                            std::cout<<"Debug mode enabled."<<std::endl;
+                            namedWindow("rgb", CV_WINDOW_AUTOSIZE);
+                            namedWindow("depth", CV_WINDOW_AUTOSIZE);
+                            namedWindow("diff", CV_WINDOW_AUTOSIZE);
+                        }
+                        break;
+                        
+                    case sf::Keyboard::Up: // UP
+                        freenect_angle++;
+                        if (freenect_angle > 30) {
+                            freenect_angle = 30;
+                        }
+                        break;
+                        
+                    case sf::Keyboard::Down: // down
+                        freenect_angle--;
+                        if (freenect_angle < -30) {
+                            freenect_angle = -30;
+                        }
+                        break;
                 }
-                
-                break;
+                //cout << "waitKey" << waitKey(10) << endl;
+                if (current_freenect_angle != freenect_angle){
+                    device.setTiltDegrees(freenect_angle);
+                    current_freenect_angle = freenect_angle;
+                }
+            }
         }
-        
-        //		cout << "freenect_angle" << waitKey(10) << endl;
-        if (current_freenect_angle != freenect_angle){
-            device.setTiltDegrees(freenect_angle);
-            current_freenect_angle = freenect_angle;
-        }
-        
     }
-    
-    
     
     device.stopVideo();
     device.stopDepth();
