@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6C272E071AE023BA000AE2C7"
-               BuildableName = "MotionDetection"
-               BlueprintName = "MotionDetection"
-               ReferencedContainer = "container:MotionDetection.xcodeproj">
+               BlueprintIdentifier = "6CEABBE61AE8A8CC00A12DB1"
+               BuildableName = "FazerChover.app"
+               BlueprintName = "FazerChover"
+               ReferencedContainer = "container:FazerChover.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C272E071AE023BA000AE2C7"
-            BuildableName = "MotionDetection"
-            BlueprintName = "MotionDetection"
-            ReferencedContainer = "container:MotionDetection.xcodeproj">
+            BlueprintIdentifier = "6CEABBE61AE8A8CC00A12DB1"
+            BuildableName = "FazerChover.app"
+            BlueprintName = "FazerChover"
+            ReferencedContainer = "container:FazerChover.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,10 +52,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C272E071AE023BA000AE2C7"
-            BuildableName = "MotionDetection"
-            BlueprintName = "MotionDetection"
-            ReferencedContainer = "container:MotionDetection.xcodeproj">
+            BlueprintIdentifier = "6CEABBE61AE8A8CC00A12DB1"
+            BuildableName = "FazerChover.app"
+            BlueprintName = "FazerChover"
+            ReferencedContainer = "container:FazerChover.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,10 +71,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C272E071AE023BA000AE2C7"
-            BuildableName = "MotionDetection"
-            BlueprintName = "MotionDetection"
-            ReferencedContainer = "container:MotionDetection.xcodeproj">
+            BlueprintIdentifier = "6CEABBE61AE8A8CC00A12DB1"
+            BuildableName = "FazerChover.app"
+            BlueprintName = "FazerChover"
+            ReferencedContainer = "container:FazerChover.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -6,16 +6,24 @@
 // Description : freenect+opencv
 //============================================================================
 
-#include "libfreenect/libfreenect.hpp"
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <pthread.h>
+#include <pthread.h> 
+
+#include "libfreenect/libfreenect.hpp"
+
 #include <opencv2/opencv.hpp>
+
+#include <SFML/Graphics.hpp>
 
 
 using namespace cv;
 using namespace std;
+
+
+
+////////////////////////////////////////////////////////////////////////////////
 
 class myMutex
 {
@@ -127,8 +135,20 @@ private:
     bool m_new_depth_frame;
 };
 
+////////////////////////////////////////////////////////////////////////////////
+
 int main(int argc, char **argv)
 {
+    // Create the main window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+    // Clear screen
+    window.clear();
+    
+    // Update the window
+    window.display();
+    
+    
+    
     bool die(false);
     string filename("snapshot");
     string suffix(".png");
@@ -168,6 +188,8 @@ int main(int argc, char **argv)
     
     double progress = 0;
     double w = 640;
+    
+    
     
     //	sf::Clock Clock;
     //	while (Clock.GetElapsedTime() < 5.f)

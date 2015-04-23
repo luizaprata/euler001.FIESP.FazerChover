@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6CEABBED1AE8A8CC00A12DB1 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CEABBEC1AE8A8CC00A12DB1 /* ResourcePath.mm */; };
+		6CEABBF01AE8A8CC00A12DB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CEABBEF1AE8A8CC00A12DB1 /* main.cpp */; };
+		6CEABBF31AE8A8CC00A12DB1 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6CEABBF21AE8A8CC00A12DB1 /* cute_image.jpg */; };
+		6CEABBF51AE8A8CC00A12DB1 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 6CEABBF41AE8A8CC00A12DB1 /* nice_music.ogg */; };
+		6CEABBF71AE8A8CC00A12DB1 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CEABBF61AE8A8CC00A12DB1 /* sansation.ttf */; };
+		6CEABBF91AE8A8CC00A12DB1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CEABBF81AE8A8CC00A12DB1 /* icon.png */; };
+		6CEABC181AE8ADF600A12DB1 /* libopencv_calib3d.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABBFF1AE8ADF600A12DB1 /* libopencv_calib3d.2.4.10.dylib */; };
+		6CEABC191AE8ADF600A12DB1 /* libopencv_contrib.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC001AE8ADF600A12DB1 /* libopencv_contrib.2.4.10.dylib */; };
+		6CEABC1A1AE8ADF600A12DB1 /* libopencv_core.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC011AE8ADF600A12DB1 /* libopencv_core.2.4.10.dylib */; };
+		6CEABC1B1AE8ADF600A12DB1 /* libopencv_features2d.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC021AE8ADF600A12DB1 /* libopencv_features2d.2.4.10.dylib */; };
+		6CEABC1C1AE8ADF600A12DB1 /* libopencv_flann.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC031AE8ADF600A12DB1 /* libopencv_flann.2.4.10.dylib */; };
+		6CEABC1D1AE8ADF600A12DB1 /* libopencv_gpu.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC041AE8ADF600A12DB1 /* libopencv_gpu.2.4.10.dylib */; };
+		6CEABC1E1AE8ADF600A12DB1 /* libopencv_highgui.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC051AE8ADF600A12DB1 /* libopencv_highgui.2.4.10.dylib */; };
+		6CEABC1F1AE8ADF600A12DB1 /* libopencv_imgproc.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC061AE8ADF600A12DB1 /* libopencv_imgproc.2.4.10.dylib */; };
+		6CEABC201AE8ADF600A12DB1 /* libopencv_legacy.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC071AE8ADF600A12DB1 /* libopencv_legacy.2.4.10.dylib */; };
+		6CEABC211AE8ADF600A12DB1 /* libopencv_ml.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC081AE8ADF600A12DB1 /* libopencv_ml.2.4.10.dylib */; };
+		6CEABC221AE8ADF600A12DB1 /* libopencv_nonfree.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC091AE8ADF600A12DB1 /* libopencv_nonfree.2.4.10.dylib */; };
+		6CEABC231AE8ADF600A12DB1 /* libopencv_objdetect.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC0A1AE8ADF600A12DB1 /* libopencv_objdetect.2.4.10.dylib */; };
+		6CEABC241AE8ADF600A12DB1 /* libopencv_ocl.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC0B1AE8ADF600A12DB1 /* libopencv_ocl.2.4.10.dylib */; };
+		6CEABC251AE8ADF600A12DB1 /* libopencv_photo.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC0C1AE8ADF600A12DB1 /* libopencv_photo.2.4.10.dylib */; };
+		6CEABC261AE8ADF600A12DB1 /* libopencv_stitching.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC0D1AE8ADF600A12DB1 /* libopencv_stitching.2.4.10.dylib */; };
+		6CEABC271AE8ADF600A12DB1 /* libopencv_superres.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC0E1AE8ADF600A12DB1 /* libopencv_superres.2.4.10.dylib */; };
+		6CEABC281AE8ADF600A12DB1 /* libopencv_video.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC0F1AE8ADF600A12DB1 /* libopencv_video.2.4.10.dylib */; };
+		6CEABC291AE8ADF600A12DB1 /* libopencv_videostab.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC101AE8ADF600A12DB1 /* libopencv_videostab.2.4.10.dylib */; };
+		6CEABC2A1AE8ADF600A12DB1 /* libfreenect_sync.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC111AE8ADF600A12DB1 /* libfreenect_sync.dylib */; };
+		6CEABC2B1AE8ADF600A12DB1 /* libfreenect.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC121AE8ADF600A12DB1 /* libfreenect.dylib */; };
+		6CEABC2C1AE8ADF600A12DB1 /* libsfml-audio.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC131AE8ADF600A12DB1 /* libsfml-audio.dylib */; };
+		6CEABC2D1AE8ADF600A12DB1 /* libsfml-graphics.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC141AE8ADF600A12DB1 /* libsfml-graphics.dylib */; };
+		6CEABC2E1AE8ADF600A12DB1 /* libsfml-network.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC151AE8ADF600A12DB1 /* libsfml-network.dylib */; };
+		6CEABC2F1AE8ADF600A12DB1 /* libsfml-system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC161AE8ADF600A12DB1 /* libsfml-system.dylib */; };
+		6CEABC301AE8ADF600A12DB1 /* libsfml-window.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC171AE8ADF600A12DB1 /* libsfml-window.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6CEABBE71AE8A8CC00A12DB1 /* FazerChover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FazerChover.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CEABBEB1AE8A8CC00A12DB1 /* FazerChover-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FazerChover-Info.plist"; sourceTree = "<group>"; };
+		6CEABBEC1AE8A8CC00A12DB1 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
+		6CEABBEE1AE8A8CC00A12DB1 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
+		6CEABBEF1AE8A8CC00A12DB1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6CEABBF21AE8A8CC00A12DB1 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
+		6CEABBF41AE8A8CC00A12DB1 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
+		6CEABBF61AE8A8CC00A12DB1 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
+		6CEABBF81AE8A8CC00A12DB1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		6CEABBFF1AE8ADF600A12DB1 /* libopencv_calib3d.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_calib3d.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC001AE8ADF600A12DB1 /* libopencv_contrib.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_contrib.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_contrib.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC011AE8ADF600A12DB1 /* libopencv_core.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_core.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC021AE8ADF600A12DB1 /* libopencv_features2d.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_features2d.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_features2d.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC031AE8ADF600A12DB1 /* libopencv_flann.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_flann.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_flann.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC041AE8ADF600A12DB1 /* libopencv_gpu.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_gpu.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_gpu.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC051AE8ADF600A12DB1 /* libopencv_highgui.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_highgui.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC061AE8ADF600A12DB1 /* libopencv_imgproc.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_imgproc.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC071AE8ADF600A12DB1 /* libopencv_legacy.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_legacy.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_legacy.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC081AE8ADF600A12DB1 /* libopencv_ml.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ml.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_ml.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC091AE8ADF600A12DB1 /* libopencv_nonfree.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_nonfree.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_nonfree.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC0A1AE8ADF600A12DB1 /* libopencv_objdetect.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_objdetect.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC0B1AE8ADF600A12DB1 /* libopencv_ocl.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ocl.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_ocl.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC0C1AE8ADF600A12DB1 /* libopencv_photo.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_photo.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_photo.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC0D1AE8ADF600A12DB1 /* libopencv_stitching.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_stitching.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_stitching.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC0E1AE8ADF600A12DB1 /* libopencv_superres.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_superres.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_superres.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC0F1AE8ADF600A12DB1 /* libopencv_video.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_video.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC101AE8ADF600A12DB1 /* libopencv_videostab.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.2.4.10.dylib; path = ../../../../../usr/local/lib/libopencv_videostab.2.4.10.dylib; sourceTree = "<group>"; };
+		6CEABC111AE8ADF600A12DB1 /* libfreenect_sync.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreenect_sync.dylib; path = ../../../../../usr/local/lib/libfreenect_sync.dylib; sourceTree = "<group>"; };
+		6CEABC121AE8ADF600A12DB1 /* libfreenect.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreenect.dylib; path = ../../../../../usr/local/lib/libfreenect.dylib; sourceTree = "<group>"; };
+		6CEABC131AE8ADF600A12DB1 /* libsfml-audio.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.dylib"; path = "../../../../../usr/local/lib/libsfml-audio.dylib"; sourceTree = "<group>"; };
+		6CEABC141AE8ADF600A12DB1 /* libsfml-graphics.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.dylib"; path = "../../../../../usr/local/lib/libsfml-graphics.dylib"; sourceTree = "<group>"; };
+		6CEABC151AE8ADF600A12DB1 /* libsfml-network.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.dylib"; path = "../../../../../usr/local/lib/libsfml-network.dylib"; sourceTree = "<group>"; };
+		6CEABC161AE8ADF600A12DB1 /* libsfml-system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.dylib"; path = "../../../../../usr/local/lib/libsfml-system.dylib"; sourceTree = "<group>"; };
+		6CEABC171AE8ADF600A12DB1 /* libsfml-window.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.dylib"; path = "../../../../../usr/local/lib/libsfml-window.dylib"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6CEABBE31AE8A8CC00A12DB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CEABC281AE8ADF600A12DB1 /* libopencv_video.2.4.10.dylib in Frameworks */,
+				6CEABC2F1AE8ADF600A12DB1 /* libsfml-system.dylib in Frameworks */,
+				6CEABC251AE8ADF600A12DB1 /* libopencv_photo.2.4.10.dylib in Frameworks */,
+				6CEABC261AE8ADF600A12DB1 /* libopencv_stitching.2.4.10.dylib in Frameworks */,
+				6CEABC2E1AE8ADF600A12DB1 /* libsfml-network.dylib in Frameworks */,
+				6CEABC201AE8ADF600A12DB1 /* libopencv_legacy.2.4.10.dylib in Frameworks */,
+				6CEABC1E1AE8ADF600A12DB1 /* libopencv_highgui.2.4.10.dylib in Frameworks */,
+				6CEABC2C1AE8ADF600A12DB1 /* libsfml-audio.dylib in Frameworks */,
+				6CEABC211AE8ADF600A12DB1 /* libopencv_ml.2.4.10.dylib in Frameworks */,
+				6CEABC1C1AE8ADF600A12DB1 /* libopencv_flann.2.4.10.dylib in Frameworks */,
+				6CEABC2A1AE8ADF600A12DB1 /* libfreenect_sync.dylib in Frameworks */,
+				6CEABC2D1AE8ADF600A12DB1 /* libsfml-graphics.dylib in Frameworks */,
+				6CEABC231AE8ADF600A12DB1 /* libopencv_objdetect.2.4.10.dylib in Frameworks */,
+				6CEABC181AE8ADF600A12DB1 /* libopencv_calib3d.2.4.10.dylib in Frameworks */,
+				6CEABC1F1AE8ADF600A12DB1 /* libopencv_imgproc.2.4.10.dylib in Frameworks */,
+				6CEABC221AE8ADF600A12DB1 /* libopencv_nonfree.2.4.10.dylib in Frameworks */,
+				6CEABC1D1AE8ADF600A12DB1 /* libopencv_gpu.2.4.10.dylib in Frameworks */,
+				6CEABC1A1AE8ADF600A12DB1 /* libopencv_core.2.4.10.dylib in Frameworks */,
+				6CEABC301AE8ADF600A12DB1 /* libsfml-window.dylib in Frameworks */,
+				6CEABC271AE8ADF600A12DB1 /* libopencv_superres.2.4.10.dylib in Frameworks */,
+				6CEABC1B1AE8ADF600A12DB1 /* libopencv_features2d.2.4.10.dylib in Frameworks */,
+				6CEABC241AE8ADF600A12DB1 /* libopencv_ocl.2.4.10.dylib in Frameworks */,
+				6CEABC291AE8ADF600A12DB1 /* libopencv_videostab.2.4.10.dylib in Frameworks */,
+				6CEABC2B1AE8ADF600A12DB1 /* libfreenect.dylib in Frameworks */,
+				6CEABC191AE8ADF600A12DB1 /* libopencv_contrib.2.4.10.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6CEABBDD1AE8A8CC00A12DB1 = {
+			isa = PBXGroup;
+			children = (
+				6CEABBFF1AE8ADF600A12DB1 /* libopencv_calib3d.2.4.10.dylib */,
+				6CEABC001AE8ADF600A12DB1 /* libopencv_contrib.2.4.10.dylib */,
+				6CEABC011AE8ADF600A12DB1 /* libopencv_core.2.4.10.dylib */,
+				6CEABC021AE8ADF600A12DB1 /* libopencv_features2d.2.4.10.dylib */,
+				6CEABC031AE8ADF600A12DB1 /* libopencv_flann.2.4.10.dylib */,
+				6CEABC041AE8ADF600A12DB1 /* libopencv_gpu.2.4.10.dylib */,
+				6CEABC051AE8ADF600A12DB1 /* libopencv_highgui.2.4.10.dylib */,
+				6CEABC061AE8ADF600A12DB1 /* libopencv_imgproc.2.4.10.dylib */,
+				6CEABC071AE8ADF600A12DB1 /* libopencv_legacy.2.4.10.dylib */,
+				6CEABC081AE8ADF600A12DB1 /* libopencv_ml.2.4.10.dylib */,
+				6CEABC091AE8ADF600A12DB1 /* libopencv_nonfree.2.4.10.dylib */,
+				6CEABC0A1AE8ADF600A12DB1 /* libopencv_objdetect.2.4.10.dylib */,
+				6CEABC0B1AE8ADF600A12DB1 /* libopencv_ocl.2.4.10.dylib */,
+				6CEABC0C1AE8ADF600A12DB1 /* libopencv_photo.2.4.10.dylib */,
+				6CEABC0D1AE8ADF600A12DB1 /* libopencv_stitching.2.4.10.dylib */,
+				6CEABC0E1AE8ADF600A12DB1 /* libopencv_superres.2.4.10.dylib */,
+				6CEABC0F1AE8ADF600A12DB1 /* libopencv_video.2.4.10.dylib */,
+				6CEABC101AE8ADF600A12DB1 /* libopencv_videostab.2.4.10.dylib */,
+				6CEABC111AE8ADF600A12DB1 /* libfreenect_sync.dylib */,
+				6CEABC121AE8ADF600A12DB1 /* libfreenect.dylib */,
+				6CEABC131AE8ADF600A12DB1 /* libsfml-audio.dylib */,
+				6CEABC141AE8ADF600A12DB1 /* libsfml-graphics.dylib */,
+				6CEABC151AE8ADF600A12DB1 /* libsfml-network.dylib */,
+				6CEABC161AE8ADF600A12DB1 /* libsfml-system.dylib */,
+				6CEABC171AE8ADF600A12DB1 /* libsfml-window.dylib */,
+				6CEABBE91AE8A8CC00A12DB1 /* FazerChover */,
+				6CEABBE81AE8A8CC00A12DB1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6CEABBE81AE8A8CC00A12DB1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CEABBE71AE8A8CC00A12DB1 /* FazerChover.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CEABBE91AE8A8CC00A12DB1 /* FazerChover */ = {
+			isa = PBXGroup;
+			children = (
+				6CEABBEC1AE8A8CC00A12DB1 /* ResourcePath.mm */,
+				6CEABBEE1AE8A8CC00A12DB1 /* ResourcePath.hpp */,
+				6CEABBEF1AE8A8CC00A12DB1 /* main.cpp */,
+				6CEABBF11AE8A8CC00A12DB1 /* Resources */,
+				6CEABBEA1AE8A8CC00A12DB1 /* Supporting Files */,
+			);
+			path = FazerChover;
+			sourceTree = "<group>";
+		};
+		6CEABBEA1AE8A8CC00A12DB1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CEABBEB1AE8A8CC00A12DB1 /* FazerChover-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6CEABBF11AE8A8CC00A12DB1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6CEABBF21AE8A8CC00A12DB1 /* cute_image.jpg */,
+				6CEABBF41AE8A8CC00A12DB1 /* nice_music.ogg */,
+				6CEABBF61AE8A8CC00A12DB1 /* sansation.ttf */,
+				6CEABBF81AE8A8CC00A12DB1 /* icon.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6CEABBE61AE8A8CC00A12DB1 /* FazerChover */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CEABBFC1AE8A8CC00A12DB1 /* Build configuration list for PBXNativeTarget "FazerChover" */;
+			buildPhases = (
+				6CEABBE21AE8A8CC00A12DB1 /* Sources */,
+				6CEABBE31AE8A8CC00A12DB1 /* Frameworks */,
+				6CEABBE41AE8A8CC00A12DB1 /* Resources */,
+				6CEABBE51AE8A8CC00A12DB1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FazerChover;
+			productName = FazerChover;
+			productReference = 6CEABBE71AE8A8CC00A12DB1 /* FazerChover.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6CEABBDE1AE8A8CC00A12DB1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Luiza Prata";
+				TargetAttributes = {
+					6CEABBE61AE8A8CC00A12DB1 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = 6CEABBE11AE8A8CC00A12DB1 /* Build configuration list for PBXProject "FazerChover" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6CEABBDD1AE8A8CC00A12DB1;
+			productRefGroup = 6CEABBE81AE8A8CC00A12DB1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CEABBE61AE8A8CC00A12DB1 /* FazerChover */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6CEABBE41AE8A8CC00A12DB1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CEABBF91AE8A8CC00A12DB1 /* icon.png in Resources */,
+				6CEABBF71AE8A8CC00A12DB1 /* sansation.ttf in Resources */,
+				6CEABBF51AE8A8CC00A12DB1 /* nice_music.ogg in Resources */,
+				6CEABBF31AE8A8CC00A12DB1 /* cute_image.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6CEABBE51AE8A8CC00A12DB1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This shell script simply copies required SFML dylibs/frameworks into the application bundle frameworks folder.\n# If you're using static libraries (which is not recommended) you should remove this script from your project.\n\n# Are we building a project that uses frameworks or dylibs?\ncase \"$SFML_BINARY_TYPE\" in\n    DYLIBS)\n        frameworks=\"false\"\n        ;;\n    *)\n        frameworks=\"true\"\n        ;;\nesac\n\n# Echoes to stderr\nerror () # $* message to display\n{\n    echo $* 1>&2\n    exit 2\n}\n\nassert () # $1 is a boolean, $2...N is an error message\n{\n    if [ $# -lt 2 ]\n    then\n        error \"Internal error in assert : not enough args\"\n    fi\n\n    if [ $1 -ne 0 ]\n    then\n        shift\n        error \"$*\"\n    fi\n}\n\nforce_remove () # $@ is some paths\n{\n    test $# -ge 1\n    assert $? \"force_remove() requires at least one parameter\"\n    rm -fr $@\n    assert $? \"couldn't remove $@\"\n}\n\ncopy () # $1 is a source, $2 is a destination\n{\n    test $# -eq 2\n    assert $? \"copy() requires two parameters\"\n    ditto \"$1\" \"$2\"\n    assert $? \"couldn't copy $1 to $2\"\n}\n\nrequire () # $1 is a SFML module like 'system' or 'audio'\n{\n    dest=\"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/Contents/Frameworks\"\n\n    if [ -z \"$1\" ]\n    then\n        error \"require() requires one parameter!\"\n    else\n        # clean potentially old stuff\n        force_remove \"$dest/libsfml-$1\"*\n        force_remove \"$dest/sfml-$1.framework\"\n\n        # copy SFML libraries\n        if [ \"$frameworks\" = \"true\" ]\n        then\n            source=\"/Library/Frameworks/sfml-$1.framework\"\n            target=\"sfml-$1.framework\"\n        elif [ \"$SFML_LINK_DYLIBS_SUFFIX\" = \"-d\" ]\n        then\n            source=\"/usr/local/lib/libsfml-$1-d.dylib\"\n            target=\"`readlink $source`\"\n        else\n            source=\"/usr/local/lib/libsfml-$1.dylib\"\n            target=\"`readlink $source`\"\n        fi\n\n        copy \"$source\" \"$dest/$target\"\n\n        # copy extra dependencies\n        if [ \"$1\" = \"audio\" ]\n        then\n            # copy sndfile framework too\n            copy \"/Library/Frameworks/sndfile.framework\" \"$dest/sndfile.framework\"\n        elif [ \"$1\" = \"graphics\" ]\n        then\n            # copy freetype framework too\n            copy \"/Library/Frameworks/freetype.framework\" \"$dest/freetype.framework\"\n        fi\n    fi\n}\n\nif [ -n \"$SFML_SYSTEM\" ]\nthen\n    require \"system\"\nfi\n\nif [ -n \"$SFML_AUDIO\" ]\nthen\n    require \"audio\"\nfi\n\nif [ -n \"$SFML_NETWORK\" ]\nthen\n    require \"network\"\nfi\n\nif [ -n \"$SFML_WINDOW\" ]\nthen\n    require \"window\"\nfi\n\nif [ -n \"$SFML_GRAPHICS\" ]\nthen\n    require \"graphics\"\nfi\n\n                ";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6CEABBE21AE8A8CC00A12DB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CEABBF01AE8A8CC00A12DB1 /* main.cpp in Sources */,
+				6CEABBED1AE8A8CC00A12DB1 /* ResourcePath.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6CEABBFA1AE8A8CC00A12DB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Debug;
+		};
+		6CEABBFB1AE8A8CC00A12DB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
+		6CEABBFD1AE8A8CC00A12DB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+					"/usr/local/include/libusb-1.0",
+				);
+				INFOPLIST_FILE = "FazerChover/FazerChover-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6CEABBFE1AE8A8CC00A12DB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+					"/usr/local/include/libusb-1.0",
+				);
+				INFOPLIST_FILE = "FazerChover/FazerChover-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CEABBE11AE8A8CC00A12DB1 /* Build configuration list for PBXProject "FazerChover" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CEABBFA1AE8A8CC00A12DB1 /* Debug */,
+				6CEABBFB1AE8A8CC00A12DB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CEABBFC1AE8A8CC00A12DB1 /* Build configuration list for PBXNativeTarget "FazerChover" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CEABBFD1AE8A8CC00A12DB1 /* Debug */,
+				6CEABBFE1AE8A8CC00A12DB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6CEABBDE1AE8A8CC00A12DB1 /* Project object */;
+}
