@@ -152,24 +152,155 @@ int main(int argc, char **argv)
     
     
     // Load a sprite to display
-    sf::Texture texture;
-    if (!texture.loadFromFile(resourcePath() + "bg_deserto.png")) {
+    
+    sf::Vector2f maskPosition(34,258);
+    
+    sf::Texture textureDesert;
+    if (!textureDesert.loadFromFile(resourcePath() + "bg_deserto.png")) {
         std::cout << "fail load texture deserto" << std::endl;
         return -1;
     }
-    sf::Sprite sprite(texture);
     
-    Animation walkingAnimationDown;
-    walkingAnimationDown.setSpriteSheet(texture);
-    walkingAnimationDown.addFrame(sf::IntRect(32, 0, 32, 32));
-    walkingAnimationDown.addFrame(sf::IntRect(64, 0, 32, 32));
-    walkingAnimationDown.addFrame(sf::IntRect(32, 0, 32, 32));
-    walkingAnimationDown.addFrame(sf::IntRect( 0, 0, 32, 32));
-    Animation* currentAnimation = &walkingAnimationDown;
+    sf::Sprite bgSprite(textureDesert);
+    bgSprite.setPosition(maskPosition);
+    
+    
+    // animation characters
+    sf::Texture textureCharacters;
+    if (!textureCharacters.loadFromFile(resourcePath() + "characters.png")) {
+        std::cout << "fail load texture deserto" << std::endl;
+        return -1;
+    }
+    Animation char01;
+    char01.setSpriteSheet(textureCharacters);
+    char01.addFrame(sf::IntRect(0,0,222,170));
+    char01.addFrame(sf::IntRect(222,0,222,170));
+    char01.addFrame(sf::IntRect(444,0,222,170));
+    char01.addFrame(sf::IntRect(666,0,222,170));
+    Animation char02;
+    char02.setSpriteSheet(textureCharacters);
+    char02.addFrame(sf::IntRect(888,0,222,170));
+    char02.addFrame(sf::IntRect(1110,0,222,170));
+    char02.addFrame(sf::IntRect(1332,0,222,170));
+    char02.addFrame(sf::IntRect(1554,0,222,170));
+    Animation char03;
+    char03.setSpriteSheet(textureCharacters);
+    char03.addFrame(sf::IntRect(1776,0,222,170));
+    char03.addFrame(sf::IntRect(0,170,222,170));
+    char03.addFrame(sf::IntRect(222,170,222,170));
+    char03.addFrame(sf::IntRect(444,170,222,170));
+    Animation char04;
+    char04.setSpriteSheet(textureCharacters);
+    char04.addFrame(sf::IntRect(666,170,222,170));
+    char04.addFrame(sf::IntRect(888,170,222,170));
+    char04.addFrame(sf::IntRect(1110,170,222,170));
+    char04.addFrame(sf::IntRect(1332,170,222,170));
+    Animation char05;
+    char05.setSpriteSheet(textureCharacters);
+    char05.addFrame(sf::IntRect(1554,170,222,170));
+    char05.addFrame(sf::IntRect(1776,170,222,170));
+    char05.addFrame(sf::IntRect(0,340,222,170));
+    char05.addFrame(sf::IntRect(222,340,222,170));
+    Animation char06;
+    char06.setSpriteSheet(textureCharacters);
+    char06.addFrame(sf::IntRect(444,340,222,170));
+    char06.addFrame(sf::IntRect(666,340,222,170));
+    char06.addFrame(sf::IntRect(888,340,222,170));
+    char06.addFrame(sf::IntRect(1110,340,222,170));
+    Animation char07;
+    char07.setSpriteSheet(textureCharacters);
+    char07.addFrame(sf::IntRect(1332,340,222,170));
+    char07.addFrame(sf::IntRect(1554,340,222,170));
+    char07.addFrame(sf::IntRect(1776,340,222,170));
+    char07.addFrame(sf::IntRect(0,510,222,170));
+    Animation char08;
+    char08.setSpriteSheet(textureCharacters);
+    char08.addFrame(sf::IntRect(222,510,222,170));
+    char08.addFrame(sf::IntRect(444,510,222,170));
+    char08.addFrame(sf::IntRect(666,510,222,170));
+    char08.addFrame(sf::IntRect(888,510,222,170));
+    Animation char09;
+    char09.setSpriteSheet(textureCharacters);
+    char09.addFrame(sf::IntRect(1110,510,222,170));
+    char09.addFrame(sf::IntRect(1332,510,222,170));
+    char09.addFrame(sf::IntRect(1554,510,222,170));
+    char09.addFrame(sf::IntRect(1776,510,222,170));
+    Animation char10;
+    char10.setSpriteSheet(textureCharacters);
+    char10.addFrame(sf::IntRect(0,680,222,170));
+    char10.addFrame(sf::IntRect(222,680,222,170));
+    char10.addFrame(sf::IntRect(444,680,222,170));
+    char10.addFrame(sf::IntRect(666,680,222,170));
+    Animation char11;
+    char11.setSpriteSheet(textureCharacters);
+    char11.addFrame(sf::IntRect(888,680,222,170));
+    char11.addFrame(sf::IntRect(1110,680,222,170));
+    char11.addFrame(sf::IntRect(1332,680,222,170));
+    char11.addFrame(sf::IntRect(1554,680,222,170));
+    Animation char12;
+    char12.setSpriteSheet(textureCharacters);
+    char12.addFrame(sf::IntRect(1776,680,222,170));
+    char12.addFrame(sf::IntRect(0,850,222,170));
+    char12.addFrame(sf::IntRect(222,850,222,170));
+    char12.addFrame(sf::IntRect(444,850,222,170));
+    Animation char13;
+    char13.setSpriteSheet(textureCharacters);
+    char13.addFrame(sf::IntRect(666,850,222,170));
+    char13.addFrame(sf::IntRect(888,850,222,170));
+    char13.addFrame(sf::IntRect(1110,850,222,170));
+    char13.addFrame(sf::IntRect(1332,850,222,170));
+    Animation char14;
+    char14.setSpriteSheet(textureCharacters);
+    char14.addFrame(sf::IntRect(1554,850,222,170));
+    char14.addFrame(sf::IntRect(1776,850,222,170));
+    char14.addFrame(sf::IntRect(0,1020,222,170));
+    char14.addFrame(sf::IntRect(222,1020,222,170));
+    Animation charAvestruz;
+    charAvestruz.setSpriteSheet(textureCharacters);
+    charAvestruz.addFrame(sf::IntRect(444,1020,222,170));
+    charAvestruz.addFrame(sf::IntRect(666,1020,222,170));
+    Animation charCao;
+    charCao.setSpriteSheet(textureCharacters);
+    charCao.addFrame(sf::IntRect(888,1020,222,170));
+    charCao.addFrame(sf::IntRect(1110,1020,222,170));
+    charCao.addFrame(sf::IntRect(1332,1020,222,170));
+    Animation charCoruja;
+    charCoruja.setSpriteSheet(textureCharacters);
+    charCoruja.addFrame(sf::IntRect(1554,1020,222,170));
+    charCoruja.addFrame(sf::IntRect(1776,1020,222,170));
+    Animation charGato;
+    charGato.setSpriteSheet(textureCharacters);
+    charGato.addFrame(sf::IntRect(0,1190,222,170));
+    charGato.addFrame(sf::IntRect(222,1190,222,170));
+    Animation charGorila;
+    charGorila.setSpriteSheet(textureCharacters);
+    charGorila.addFrame(sf::IntRect(444,1190,222,170));
+    charGorila.addFrame(sf::IntRect(666,1190,222,170));
+    Animation charJacare;
+    charJacare.setSpriteSheet(textureCharacters);
+    charJacare.addFrame(sf::IntRect(888,1190,222,170));
+    charJacare.addFrame(sf::IntRect(1110,1190,222,170));
+    Animation charUrso;
+    charUrso.setSpriteSheet(textureCharacters);
+    charUrso.addFrame(sf::IntRect(1332,1190,222,170));
+    charUrso.addFrame(sf::IntRect(1554,1190,222,170));
+    Animation charVaca;
+    charVaca.setSpriteSheet(textureCharacters);
+    charVaca.addFrame(sf::IntRect(1776,1190,222,170));
+    charVaca.addFrame(sf::IntRect(0,1360,222,170));
+    charVaca.addFrame(sf::IntRect(222,1360,222,170));
+    
+    
+    Animation* currentAnimation = &char01;
+    
     // set up AnimatedSprite
+    
+    
+    
     AnimatedSprite animatedSprite(sf::seconds(0.2), true, false);
-    animatedSprite.setPosition(sf::Vector2f(1024,768));
+    animatedSprite.setPosition(maskPosition);
     sf::Clock frameClock;
+    sf::Time frameTime;
     
     //kinect
     Freenect::Freenect freenect;
@@ -221,7 +352,12 @@ int main(int argc, char **argv)
         depthMat.convertTo(oldDepth, CV_8UC1, 255.0 / 2024.0);
         
         //animation
+        frameTime = frameClock.restart();
+        sf::Vector2f movement(0.f, 0.f);
+        
         animatedSprite.play(*currentAnimation);
+        animatedSprite.move(movement * frameTime.asSeconds());
+        animatedSprite.update(frameTime);
         
         //contador da diferenca
         if (differenceImage.channels() == 1) {
@@ -264,6 +400,11 @@ int main(int argc, char **argv)
         
         // Clear screen
         window.clear();
+        
+        //draw all
+        window.draw(bgSprite);
+        window.draw(animatedSprite);
+        
         
         // Update the window
         window.display();
