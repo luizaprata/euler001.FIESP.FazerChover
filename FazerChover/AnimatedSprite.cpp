@@ -51,6 +51,8 @@ void AnimatedSprite::setAnimation(const Animation& animation)
     m_animation = &animation;
     m_texture = m_animation->getSpriteSheet();
     m_currentFrame = 0;
+    currentIteration = 0;
+    maxIteration = 4;
     setFrame(m_currentFrame);
 }
 
@@ -132,6 +134,12 @@ sf::Time AnimatedSprite::getFrameTime() const
     return m_frameTime;
 }
 
+void AnimatedSprite::setMaxIteration(int value)
+{
+    currentIteration = 0;
+    maxIteration = value;
+}
+
 void AnimatedSprite::setFrame(std::size_t newFrame, bool resetTime)
 {
     if (m_animation)
@@ -159,7 +167,7 @@ void AnimatedSprite::setFrame(std::size_t newFrame, bool resetTime)
         m_currentTime = sf::Time::Zero;
 }
 
-void AnimatedSprite::update(sf::Time deltaTime)
+bool AnimatedSprite::update(sf::Time deltaTime)
 {
     // if not paused and we have a valid animation
     if (!m_isPaused && m_animation)
@@ -180,7 +188,10 @@ void AnimatedSprite::update(sf::Time deltaTime)
             {
                 // animation has ended
                 m_currentFrame = 0; // reset to start
+                currentIteration++;
                 
+                
+                    
                 if (!m_isLooped)
                 {
                     m_isPaused = true;
@@ -192,6 +203,8 @@ void AnimatedSprite::update(sf::Time deltaTime)
             setFrame(m_currentFrame, false);
         }
     }
+    
+    return currentIteration > maxIteration;
 }
 
 void AnimatedSprite::draw(sf::RenderTarget& target, sf::RenderStates states) const

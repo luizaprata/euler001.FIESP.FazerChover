@@ -28,8 +28,11 @@ Animation::Animation() : m_texture(NULL)
     
 }
 
+
+
 void Animation::addFrame(sf::IntRect rect)
 {
+    pivot += sf::Vector2f(rect.width, rect.height);
     m_frames.push_back(rect);
 }
 
@@ -47,6 +50,12 @@ std::size_t Animation::getSize() const
 {
     return m_frames.size();
 }
+
+sf::Vector2f Animation::getPivot() const
+{
+    return pivot;
+}
+
 
 const sf::IntRect& Animation::getFrame(std::size_t n) const
 {

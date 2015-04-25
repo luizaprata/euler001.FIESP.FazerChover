@@ -39,7 +39,7 @@ class AnimatedSprite : public sf::Drawable, public sf::Transformable
 public:
     explicit AnimatedSprite(sf::Time frameTime = sf::seconds(0.2f), bool paused = false, bool looped = true);
     
-    void update(sf::Time deltaTime);
+    bool update(sf::Time deltaTime);
     void setAnimation(const Animation& animation);
     void setFrameTime(sf::Time time);
     void play();
@@ -55,12 +55,15 @@ public:
     bool isPlaying() const;
     sf::Time getFrameTime() const;
     void setFrame(std::size_t newFrame, bool resetTime = true);
+    void setMaxIteration(int value);
     
 private:
     const Animation* m_animation;
     sf::Time m_frameTime;
     sf::Time m_currentTime;
     std::size_t m_currentFrame;
+    std::size_t maxIteration;
+    std::size_t currentIteration;
     bool m_isPaused;
     bool m_isLooped;
     const sf::Texture* m_texture;

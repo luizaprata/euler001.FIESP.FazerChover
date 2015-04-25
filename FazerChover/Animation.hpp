@@ -32,6 +32,7 @@ class Animation
 public:
     Animation();
     
+    sf::Vector2f getPivot() const;
     void addFrame(sf::IntRect rect);
     void setSpriteSheet(const sf::Texture& texture);
     const sf::Texture* getSpriteSheet() const;
@@ -39,6 +40,7 @@ public:
     const sf::IntRect& getFrame(std::size_t n) const;
     
 private:
+    sf::Vector2f pivot;
     std::vector<sf::IntRect> m_frames;
     const sf::Texture* m_texture;
 };
