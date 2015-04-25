@@ -134,20 +134,19 @@ private:
     bool m_new_depth_frame;
 };
 
-void setCurrentPivot(Animation* animation,sf::Vector2f* pivot) {
-    *pivot = animation->getPivot();
-    int size = animation->getSize();
-    pivot->x /= size;
-    pivot->y /= size;
-    pivot->x = -std::round(pivot->x/2);
-    pivot->y = -std::round(pivot->y);
-    
-}
+//void setCurrentPivot(Animation* animation,sf::Vector2f* pivot) {
+//    *pivot = animation->getPivot();
+//    int size = animation->getSize();
+//    pivot->x /= size;
+//    pivot->y /= size;
+//    pivot->x = -std::round(pivot->x/2);
+//    pivot->y = -std::round(pivot->y);
+//    
+//}
 
 int randInt(int min = 0, int max = 1) {
     return (rand()%max) + min;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -155,7 +154,7 @@ int main(int argc, char **argv)
 {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(1024, 768), "Fazer Chover");
-    window.setFramerateLimit(10);
+    window.setFramerateLimit(30);
     
     // Set the Icon
     sf::Image icon;
@@ -169,7 +168,7 @@ int main(int argc, char **argv)
     // set up AnimatedSprite
     
     sf::Vector2f maskPosition(34,258);
-    
+    sf::Vector2f pivot(-31,-28);
     std::vector<sf::Vector2f> positionVec(4);
     positionVec.at(0) = sf::Vector2f(34,164);
     positionVec.at(1) = sf::Vector2f(90,164);
@@ -194,7 +193,6 @@ int main(int argc, char **argv)
     }
     
     
-    std::vector<Animation> currentPivotVec(4);
     std::vector<AnimatedSprite> currentAnimatedSpriteVec(4);
     currentAnimatedSpriteVec.at(0) = AnimatedSprite(sf::seconds(0.2), true, false);
     currentAnimatedSpriteVec.at(1) = AnimatedSprite(sf::seconds(0.2), true, false);
@@ -207,144 +205,167 @@ int main(int argc, char **argv)
     std::vector<Animation> animations(0);
     Animation char01;
     char01.setSpriteSheet(textureCharacters);
-    char01.addFrame(sf::IntRect(112,440,38,52));
-    char01.addFrame(sf::IntRect(61,440,41,57));
-    char01.addFrame(sf::IntRect(10,440,41,57));
-    char01.addFrame(sf::IntRect(450,378,38,52));
+    char01.addFrame(sf::IntRect(201,620,62,57));
+    char01.addFrame(sf::IntRect(134,620,62,57));
+    char01.addFrame(sf::IntRect(67,620,62,57));
+    char01.addFrame(sf::IntRect(0,620,62,57));
     animations.push_back(char01);
+    
     Animation char02;
     char02.setSpriteSheet(textureCharacters);
-    char02.addFrame(sf::IntRect(402,378,38,52));
-    char02.addFrame(sf::IntRect(351,378,41,45));
-    char02.addFrame(sf::IntRect(300,378,41,47));
-    char02.addFrame(sf::IntRect(252,378,38,52));
+    char02.addFrame(sf::IntRect(402,558,62,57));
+    char02.addFrame(sf::IntRect(335,558,62,57));
+    char02.addFrame(sf::IntRect(268,558,62,57));
+    char02.addFrame(sf::IntRect(201,558,62,57));
     animations.push_back(char02);
+    
     Animation char03;
     char03.setSpriteSheet(textureCharacters);
-    char03.addFrame(sf::IntRect(204,378,38,49));
-    char03.addFrame(sf::IntRect(156,378,38,49));
-    char03.addFrame(sf::IntRect(108,378,38,49));
-    char03.addFrame(sf::IntRect(60,378,38,49));
+    char03.addFrame(sf::IntRect(134,558,62,57));
+    char03.addFrame(sf::IntRect(67,558,62,57));
+    char03.addFrame(sf::IntRect(0,558,62,57));
+    char03.addFrame(sf::IntRect(402,496,62,57));
     animations.push_back(char03);
+    
     Animation char04;
     char04.setSpriteSheet(textureCharacters);
-    char04.addFrame(sf::IntRect(10,378,40,48));
-    char04.addFrame(sf::IntRect(449,314,42,54));
-    char04.addFrame(sf::IntRect(399,314,40,54));
-    char04.addFrame(sf::IntRect(349,314,40,48));
+    char04.addFrame(sf::IntRect(335,496,62,57));
+    char04.addFrame(sf::IntRect(268,496,62,57));
+    char04.addFrame(sf::IntRect(201,496,62,57));
+    char04.addFrame(sf::IntRect(134,496,62,57));
     animations.push_back(char04);
+    
     Animation char05;
     char05.setSpriteSheet(textureCharacters);
-    char05.addFrame(sf::IntRect(301,314,38,52));
-    char05.addFrame(sf::IntRect(253,314,38,52));
-    char05.addFrame(sf::IntRect(205,314,38,48));
-    char05.addFrame(sf::IntRect(157,314,38,48));
+    char05.addFrame(sf::IntRect(67,496,62,57));
+    char05.addFrame(sf::IntRect(0,496,62,57));
+    char05.addFrame(sf::IntRect(402,434,62,57));
+    char05.addFrame(sf::IntRect(335,434,62,57));
     animations.push_back(char05);
+    
     Animation char06;
     char06.setSpriteSheet(textureCharacters);
-    char06.addFrame(sf::IntRect(109,314,38,52));
-    char06.addFrame(sf::IntRect(61,314,38,52));
-    char06.addFrame(sf::IntRect(10,314,41,48));
-    char06.addFrame(sf::IntRect(456,252,41,48));
+    char06.addFrame(sf::IntRect(268,434,62,57));
+    char06.addFrame(sf::IntRect(201,434,62,57));
+    char06.addFrame(sf::IntRect(134,434,62,57));
+    char06.addFrame(sf::IntRect(67,434,62,57));
     animations.push_back(char06);
+    
     Animation char07;
     char07.setSpriteSheet(textureCharacters);
-    char07.addFrame(sf::IntRect(408,252,38,49));
-    char07.addFrame(sf::IntRect(360,252,38,49));
-    char07.addFrame(sf::IntRect(312,252,38,49));
-    char07.addFrame(sf::IntRect(264,252,38,49));
+    char07.addFrame(sf::IntRect(0,434,62,57));
+    char07.addFrame(sf::IntRect(402,372,62,57));
+    char07.addFrame(sf::IntRect(335,372,62,57));
+    char07.addFrame(sf::IntRect(268,372,62,57));
     animations.push_back(char07);
+    
     Animation char08;
     char08.setSpriteSheet(textureCharacters);
-    char08.addFrame(sf::IntRect(214,252,40,48));
-    char08.addFrame(sf::IntRect(164,252,40,48));
-    char08.addFrame(sf::IntRect(111,252,43,48));
-    char08.addFrame(sf::IntRect(58,252,43,48));
+    char08.addFrame(sf::IntRect(201,372,62,57));
+    char08.addFrame(sf::IntRect(134,372,62,57));
+    char08.addFrame(sf::IntRect(67,372,62,57));
+    char08.addFrame(sf::IntRect(0,372,62,57));
     animations.push_back(char08);
+    
     Animation char09;
     char09.setSpriteSheet(textureCharacters);
-    char09.addFrame(sf::IntRect(10,252,38,52));
-    char09.addFrame(sf::IntRect(459,190,38,52));
-    char09.addFrame(sf::IntRect(411,190,38,52));
-    char09.addFrame(sf::IntRect(363,190,38,52));
+    char09.addFrame(sf::IntRect(402,310,62,57));
+    char09.addFrame(sf::IntRect(335,310,62,57));
+    char09.addFrame(sf::IntRect(268,310,62,57));
+    char09.addFrame(sf::IntRect(201,310,62,57));
     animations.push_back(char09);
+    
     Animation char10;
     char10.setSpriteSheet(textureCharacters);
-    char10.addFrame(sf::IntRect(312,190,41,52));
-    char10.addFrame(sf::IntRect(261,190,41,52));
-    char10.addFrame(sf::IntRect(210,190,41,52));
-    char10.addFrame(sf::IntRect(159,190,41,52));
+    char10.addFrame(sf::IntRect(134,310,62,57));
+    char10.addFrame(sf::IntRect(67,310,62,57));
+    char10.addFrame(sf::IntRect(0,310,62,57));
+    char10.addFrame(sf::IntRect(402,248,62,57));
     animations.push_back(char10);
+    
     Animation char11;
     char11.setSpriteSheet(textureCharacters);
-    char11.addFrame(sf::IntRect(111,190,38,52));
-    char11.addFrame(sf::IntRect(63,190,38,52));
-    char11.addFrame(sf::IntRect(10,190,43,50));
-    char11.addFrame(sf::IntRect(447,127,43,50));
+    char11.addFrame(sf::IntRect(335,248,62,57));
+    char11.addFrame(sf::IntRect(268,248,62,57));
+    char11.addFrame(sf::IntRect(201,248,62,57));
+    char11.addFrame(sf::IntRect(134,248,62,57));
     animations.push_back(char11);
+    
     Animation char12;
     char12.setSpriteSheet(textureCharacters);
-    char12.addFrame(sf::IntRect(399,127,38,52));
-    char12.addFrame(sf::IntRect(351,127,38,52));
-    char12.addFrame(sf::IntRect(303,127,38,47));
-    char12.addFrame(sf::IntRect(255,127,38,47));
+    char12.addFrame(sf::IntRect(67,248,62,57));
+    char12.addFrame(sf::IntRect(0,248,62,57));
+    char12.addFrame(sf::IntRect(402,186,62,57));
+    char12.addFrame(sf::IntRect(335,186,62,57));
     animations.push_back(char12);
+    
     Animation char13;
     char13.setSpriteSheet(textureCharacters);
-    char13.addFrame(sf::IntRect(207,127,38,49));
-    char13.addFrame(sf::IntRect(159,127,38,49));
-    char13.addFrame(sf::IntRect(111,127,38,53));
-    char13.addFrame(sf::IntRect(63,127,38,53));
+    char13.addFrame(sf::IntRect(268,186,62,57));
+    char13.addFrame(sf::IntRect(201,186,62,57));
+    char13.addFrame(sf::IntRect(134,186,62,57));
+    char13.addFrame(sf::IntRect(67,186,62,57));
     animations.push_back(char13);
+
     Animation char14;
     char14.setSpriteSheet(textureCharacters);
-    char14.addFrame(sf::IntRect(10,127,43,48));
-    char14.addFrame(sf::IntRect(417,63,43,48));
-    char14.addFrame(sf::IntRect(364,63,43,54));
-    char14.addFrame(sf::IntRect(311,63,43,54));
+    char14.addFrame(sf::IntRect(0,186,62,57));
+    char14.addFrame(sf::IntRect(402,124,62,57));
+    char14.addFrame(sf::IntRect(335,124,62,57));
+    char14.addFrame(sf::IntRect(268,124,62,57));
     animations.push_back(char14);
+    
     Animation charAvestruz;
     charAvestruz.setSpriteSheet(textureCharacters);
-    charAvestruz.addFrame(sf::IntRect(272,63,29,39));
-    charAvestruz.addFrame(sf::IntRect(231,63,31,29));
+    charAvestruz.addFrame(sf::IntRect(201,124,62,57));
+    charAvestruz.addFrame(sf::IntRect(134,124,62,57));
     animations.push_back(charAvestruz);
+
     Animation charCao;
     charCao.setSpriteSheet(textureCharacters);
-    charCao.addFrame(sf::IntRect(192,63,29,23));
-    charCao.addFrame(sf::IntRect(148,63,34,23));
-    charCao.addFrame(sf::IntRect(94,63,44,23));
+    charCao.addFrame(sf::IntRect(67,124,62,57));
+    charCao.addFrame(sf::IntRect(0,124,62,57));
+    charCao.addFrame(sf::IntRect(402,62,62,57));
     animations.push_back(charCao);
+
     Animation charCoruja;
     charCoruja.setSpriteSheet(textureCharacters);
-    charCoruja.addFrame(sf::IntRect(60,63,24,30));
-    charCoruja.addFrame(sf::IntRect(10,63,40,32));
+    charCoruja.addFrame(sf::IntRect(335,62,62,57));
+    charCoruja.addFrame(sf::IntRect(268,62,62,57));
     animations.push_back(charCoruja);
+
     Animation charGato;
     charGato.setSpriteSheet(textureCharacters);
-    charGato.addFrame(sf::IntRect(480,10,17,25));
-    charGato.addFrame(sf::IntRect(452,10,18,29));
+    charGato.addFrame(sf::IntRect(201,62,62,57));
+    charGato.addFrame(sf::IntRect(134,62,62,57));
     animations.push_back(charGato);
+
     Animation charGorila;
     charGorila.setSpriteSheet(textureCharacters);
-    charGorila.addFrame(sf::IntRect(405,10,37,33));
-    charGorila.addFrame(sf::IntRect(358,10,37,38));
+    charGorila.addFrame(sf::IntRect(67,62,62,57));
+    charGorila.addFrame(sf::IntRect(0,62,62,57));
     animations.push_back(charGorila);
+
     Animation charJacare;
     charJacare.setSpriteSheet(textureCharacters);
-    charJacare.addFrame(sf::IntRect(308,10,40,39));
-    charJacare.addFrame(sf::IntRect(258,10,40,43));
+    charJacare.addFrame(sf::IntRect(402,0,62,57));
+    charJacare.addFrame(sf::IntRect(335,0,62,57));
     animations.push_back(charJacare);
+
     Animation charUrso;
     charUrso.setSpriteSheet(textureCharacters);
-    charUrso.addFrame(sf::IntRect(212,10,36,37));
-    charUrso.addFrame(sf::IntRect(166,10,36,41));
     animations.push_back(charUrso);
+    charUrso.addFrame(sf::IntRect(268,0,62,57));
+    charUrso.addFrame(sf::IntRect(201,0,62,57));
+    
     Animation charVaca;
     charVaca.setSpriteSheet(textureCharacters);
-    charVaca.addFrame(sf::IntRect(111,10,45,23));
-    charVaca.addFrame(sf::IntRect(65,10,36,37));
-    charVaca.addFrame(sf::IntRect(10,10,45,23));
-    animations.push_back(charVaca);
+    charVaca.addFrame(sf::IntRect(134,0,62,57));
+    charVaca.addFrame(sf::IntRect(67,0,62,57));
+    charVaca.addFrame(sf::IntRect(0,0,62,57));
+    
+    std::random_shuffle ( animations.begin(), animations.end() );
+    int countAnimation = 0;
     
     std::vector<Animation> currentAnimationVec(4);
     bool once(true);
@@ -449,23 +470,28 @@ int main(int argc, char **argv)
         
         //draw all
         window.draw(bgSprite);
+
         
         //animation
         frameTime = frameClock.restart();
         for(int i = 0; i<4; i++) {
-//            sf::Vector2f pivot(0,0);
             if (once){
-                currentAnimationVec.at(i) = animations.at(randInt(0,animations.size()));
-                currentAnimatedSpriteVec.at(i).setPosition(maskPosition+positionVec.at(i));
+                currentAnimationVec.at(i) = animations.at(countAnimation++);
+                currentAnimatedSpriteVec.at(i).setMaxIteration(randInt(2,10));
+                currentAnimatedSpriteVec.at(i).setPosition(maskPosition+positionVec.at(i)+pivot);
+                countAnimation++;
             }
             currentAnimatedSpriteVec.at(i).play(currentAnimationVec.at(i));
             if (currentAnimatedSpriteVec.at(i).update(frameTime)){
-                currentAnimationVec.at(i) = animations.at(randInt(0,animations.size()));
-                currentAnimatedSpriteVec.at(i).setPosition(maskPosition+positionVec.at(i));
+                currentAnimationVec.at(i) = animations.at(countAnimation);
                 currentAnimatedSpriteVec.at(i).setMaxIteration(randInt(2,10));
+                countAnimation++;
+                currentAnimatedSpriteVec.at(i).setPosition(maskPosition+positionVec.at(i)+pivot);
+            }
+            if (countAnimation >= animations.size()) {
+                countAnimation = 0;
             }
             window.draw(currentAnimatedSpriteVec.at(i));
-            
         }
         
         once = false;
@@ -484,26 +510,32 @@ int main(int argc, char **argv)
             // Escape pressed: exit
             if (event.type == sf::Event::KeyPressed) {
                 switch (event.key.code){
-                    case sf::Keyboard::Escape:// ESC // exit
+                        
+                    // ESC // exit
+                    case sf::Keyboard::Escape:
                         window.close();
                         break;
                     
-                    case sf::Keyboard::M: 	//show/hide mask'
+                    //show/hide mask'
+                    case sf::Keyboard::M:
                         break;
                     
-                    case sf::Keyboard::T: 	//snapshot
+                    //snapshot
+                    case sf::Keyboard::T:
                         file.str("");
                         file.clear();
                         file << filename << i_snap << suffix;
                         cv::imwrite(file.str(), rgbMat);
                         i_snap++;
                         break;
-
-                    case sf::Keyboard::R: // reset
+                    
+                    // reset
+                    case sf::Keyboard::R:
                         progress = 0;
                         break;
                     
-                    case sf::Keyboard::D: //'d' has been pressed. this will debug mode
+                    //'d' has been pressed. this will debug mode
+                    case sf::Keyboard::D:
                         debugMode = !debugMode;
                         if (debugMode == false){
                             std::cout<<"Debug mode disabled."<<std::endl;
@@ -517,15 +549,17 @@ int main(int argc, char **argv)
                             namedWindow("diff", CV_WINDOW_AUTOSIZE);
                         }
                         break;
-                        
-                    case sf::Keyboard::Up: // UP
+                    
+                    // UP
+                    case sf::Keyboard::Up:
                         freenect_angle++;
                         if (freenect_angle > 30) {
                             freenect_angle = 30;
                         }
                         break;
-                        
-                    case sf::Keyboard::Down: // down
+                    
+                    // down
+                    case sf::Keyboard::Down:
                         freenect_angle--;
                         if (freenect_angle < -30) {
                             freenect_angle = -30;
