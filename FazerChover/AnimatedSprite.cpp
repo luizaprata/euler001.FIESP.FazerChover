@@ -43,18 +43,23 @@ namespace stdmath {
 AnimatedSprite::AnimatedSprite(sf::Time frameTime, bool paused, bool looped) :
 m_animation(NULL), m_frameTime(frameTime), m_currentFrame(0), m_isPaused(paused), m_isLooped(looped), m_texture(NULL)
 {
-    
+    currentIteration = 1;
+    maxIteration = 0;
 }
+
+
 
 void AnimatedSprite::setAnimation(const Animation& animation)
 {
     m_animation = &animation;
     m_texture = m_animation->getSpriteSheet();
     m_currentFrame = 0;
-    currentIteration = 0;
-    maxIteration = 4;
+    currentIteration = 1;
+    maxIteration = 0;
     setFrame(m_currentFrame);
 }
+
+
 
 void AnimatedSprite::setFrameTime(sf::Time time)
 {
@@ -78,12 +83,26 @@ void AnimatedSprite::pause()
     m_isPaused = true;
 }
 
+void AnimatedSprite::restart()
+{
+    m_isPaused = true;
+    m_currentFrame = 0;
+    currentIteration = 0;
+}
+
+
 void AnimatedSprite::stop()
 {
     m_isPaused = true;
     m_currentFrame = 0;
     setFrame(m_currentFrame);
 }
+void AnimatedSprite::setPlayReverse(bool value)
+{
+    m_playReverse = value;
+}
+
+
 
 void AnimatedSprite::setLooped(bool looped)
 {
@@ -124,9 +143,19 @@ bool AnimatedSprite::isLooped() const
     return m_isLooped;
 }
 
+bool AnimatedSprite::isPlayingReverse() const
+{
+    return m_playReverse;
+}
+
 bool AnimatedSprite::isPlaying() const
 {
     return !m_isPaused;
+}
+
+std::size_t AnimatedSprite::getCurrentFrame() const
+{
+    return m_currentFrame;
 }
 
 sf::Time AnimatedSprite::getFrameTime() const
@@ -182,21 +211,29 @@ bool AnimatedSprite::update(sf::Time deltaTime)
             m_currentTime = sf::microseconds(m_currentTime.asMicroseconds() % m_frameTime.asMicroseconds());
             
             // get next Frame index
-            if (m_currentFrame + 1 < m_animation->getSize())
-                m_currentFrame++;
-            else
-            {
-                // animation has ended
-                m_currentFrame = 0; // reset to start
-                currentIteration++;
-                
-                
-                    
-                if (!m_isLooped)
-                {
-                    m_isPaused = true;
+            if (m_playReverse){
+                if(m_currentFrame > 0){
+                    m_currentFrame--;
+                } else {
+                    if (!m_isLooped){
+                        m_isPaused = true;
+                    } else {
+                        m_currentFrame = (m_animation->getSize()-1); // reset to end
+                        currentIteration++;
+                    }
                 }
-                
+            } else {
+                if (m_currentFrame + 1 < m_animation->getSize()){
+                    m_currentFrame++;
+                } else {
+                    // animation has ended
+                    if (!m_isLooped){
+                        m_isPaused = true;
+                    } else {
+                        m_currentFrame = 0; // reset to start
+                        currentIteration++;
+                    }
+                }
             }
             
             // set the current frame, not reseting the time

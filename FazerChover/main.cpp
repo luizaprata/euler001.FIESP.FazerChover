@@ -49,11 +49,7 @@ class MyFreenectDevice: public Freenect::FreenectDevice
 {
 public:
     MyFreenectDevice(freenect_context *_ctx, int _index) :
-    Freenect::FreenectDevice(_ctx, _index), m_buffer_depth(
-                                                           FREENECT_DEPTH_11BIT), m_buffer_rgb(FREENECT_VIDEO_RGB), m_gamma(
-                                                                                                                            2048), m_new_rgb_frame(false), m_new_depth_frame(false), depthMat(
-                                                                                                                                                                                              Size(640, 480), CV_16UC1), rgbMat(Size(640, 480), CV_8UC3,
-                                                                                                                                                                                                                                Scalar(0)), ownMat(Size(640, 480), CV_8UC3, Scalar(0))
+    Freenect::FreenectDevice(_ctx, _index), m_buffer_depth(FREENECT_DEPTH_11BIT), m_buffer_rgb(FREENECT_VIDEO_RGB), m_gamma(2048), m_new_rgb_frame(false), m_new_depth_frame(false), depthMat(Size(640, 480), CV_16UC1), rgbMat(Size(640, 480), CV_8UC3, Scalar(0)), ownMat(Size(640, 480), CV_8UC3, Scalar(0))
     {
         
         for (unsigned int i = 0; i < 2048; i++)
@@ -134,16 +130,6 @@ private:
     bool m_new_depth_frame;
 };
 
-//void setCurrentPivot(Animation* animation,sf::Vector2f* pivot) {
-//    *pivot = animation->getPivot();
-//    int size = animation->getSize();
-//    pivot->x /= size;
-//    pivot->y /= size;
-//    pivot->x = -std::round(pivot->x/2);
-//    pivot->y = -std::round(pivot->y);
-//    
-//}
-
 int randInt(int min = 0, int max = 1) {
     return (rand()%max) + min;
 }
@@ -163,41 +149,330 @@ int main(int argc, char **argv)
     }
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
-    
-    
     // set up AnimatedSprite
-    
     sf::Vector2f maskPosition(34,258);
-    sf::Vector2f pivot(-31,-28);
+    sf::Vector2f pivot(-31,-56);
     std::vector<sf::Vector2f> positionVec(4);
     positionVec.at(0) = sf::Vector2f(34,164);
     positionVec.at(1) = sf::Vector2f(90,164);
     positionVec.at(2) = sf::Vector2f(133,164);
     positionVec.at(3) = sf::Vector2f(195,164);
     
-    sf::Texture textureDesert;
-    if (!textureDesert.loadFromFile(resourcePath() + "bg_deserto.png")) {
-        std::cout << "fail load texture deserto" << std::endl;
+    ///SPECIAL EFFECTS
+    AnimatedSprite specialEffect = AnimatedSprite(sf::seconds(0.2), true, false);
+    specialEffect.setPosition(maskPosition);
+    specialEffect.setLooped(false);
+    
+    //urubu
+    sf::Texture textureUrubu;
+    if (!textureUrubu.loadFromFile(resourcePath() + "urubu.png")) {
+        std::cout << "fail load texture urubu.png" << std::endl;
         return -1;
     }
+    Animation urubu;
+    urubu.addFrame(sf::IntRect(0,0,222,170));
+    urubu.addFrame(sf::IntRect(222,0,222,170));
+    urubu.addFrame(sf::IntRect(0,170,222,170));
+    urubu.addFrame(sf::IntRect(222,170,222,170));
+    urubu.addFrame(sf::IntRect(0,340,222,170));
+    urubu.addFrame(sf::IntRect(222,340,222,170));
+    urubu.addFrame(sf::IntRect(0,510,222,170));
+    urubu.addFrame(sf::IntRect(222,510,222,170));
+    urubu.addFrame(sf::IntRect(0,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(222,850,222,170));
     
-    sf::Sprite bgSprite(textureDesert);
-    bgSprite.setPosition(maskPosition);
+    // animation feno
+    sf::Texture textureFeno;
+    if (!textureFeno.loadFromFile(resourcePath() + "feno.png")) {
+        std::cout << "fail load texture feno" << std::endl;
+        return -1;
+    }
+    Animation feno;
+    feno.setSpriteSheet(textureFeno);
+    feno.addFrame(sf::IntRect(0,0,222,170));
+    feno.addFrame(sf::IntRect(222,0,222,170));
+    feno.addFrame(sf::IntRect(0,170,222,170));
+    feno.addFrame(sf::IntRect(222,170,222,170));
+    feno.addFrame(sf::IntRect(0,340,222,170));
+    feno.addFrame(sf::IntRect(222,340,222,170));
+    feno.addFrame(sf::IntRect(0,510,222,170));
+    feno.addFrame(sf::IntRect(222,510,222,170));
     
+    
+    
+    
+    
+    // animation cenario
+    sf::Texture textureCenario;
+    if (!textureCenario.loadFromFile(resourcePath() + "cenario.png")) {
+        std::cout << "fail load texture cenario" << std::endl;
+        return -1;
+    }
+    Animation cenario;
+    cenario.setSpriteSheet(textureCenario);
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(222,0,222,170));
+    cenario.addFrame(sf::IntRect(222,0,222,170));
+    cenario.addFrame(sf::IntRect(444,0,222,170));
+    cenario.addFrame(sf::IntRect(444,0,222,170));
+    cenario.addFrame(sf::IntRect(666,0,222,170));
+    cenario.addFrame(sf::IntRect(666,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(888,0,222,170));
+    cenario.addFrame(sf::IntRect(1110,0,222,170));
+    cenario.addFrame(sf::IntRect(1332,0,222,170));
+    cenario.addFrame(sf::IntRect(1554,0,222,170));
+    cenario.addFrame(sf::IntRect(1776,0,222,170));
+    cenario.addFrame(sf::IntRect(0,170,222,170));
+    cenario.addFrame(sf::IntRect(222,170,222,170));
+    cenario.addFrame(sf::IntRect(444,170,222,170));
+    cenario.addFrame(sf::IntRect(666,170,222,170));
+    cenario.addFrame(sf::IntRect(888,170,222,170));
+    cenario.addFrame(sf::IntRect(1110,170,222,170));
+    cenario.addFrame(sf::IntRect(1332,170,222,170));
+    cenario.addFrame(sf::IntRect(1554,170,222,170));
+    cenario.addFrame(sf::IntRect(1776,170,222,170));
+    cenario.addFrame(sf::IntRect(0,340,222,170));
+    cenario.addFrame(sf::IntRect(222,340,222,170));
+    cenario.addFrame(sf::IntRect(444,340,222,170));
+    cenario.addFrame(sf::IntRect(666,340,222,170));
+    cenario.addFrame(sf::IntRect(888,340,222,170));
+    cenario.addFrame(sf::IntRect(1110,340,222,170));
+    cenario.addFrame(sf::IntRect(1332,340,222,170));
+    cenario.addFrame(sf::IntRect(1554,340,222,170));
+    cenario.addFrame(sf::IntRect(1776,340,222,170));
+    cenario.addFrame(sf::IntRect(0,510,222,170));
+    cenario.addFrame(sf::IntRect(222,510,222,170));
+    cenario.addFrame(sf::IntRect(444,510,222,170));
+    cenario.addFrame(sf::IntRect(666,510,222,170));
+    cenario.addFrame(sf::IntRect(888,510,222,170));
+    cenario.addFrame(sf::IntRect(1110,510,222,170));
+    cenario.addFrame(sf::IntRect(1332,510,222,170));
+    cenario.addFrame(sf::IntRect(1554,510,222,170));
+    cenario.addFrame(sf::IntRect(1776,510,222,170));
+    cenario.addFrame(sf::IntRect(0,680,222,170));
+    cenario.addFrame(sf::IntRect(222,680,222,170));
+    cenario.addFrame(sf::IntRect(444,680,222,170));
+    cenario.addFrame(sf::IntRect(666,680,222,170));
+    cenario.addFrame(sf::IntRect(888,680,222,170));
+    cenario.addFrame(sf::IntRect(1110,680,222,170));
+    cenario.addFrame(sf::IntRect(1332,680,222,170));
+    cenario.addFrame(sf::IntRect(1554,680,222,170));
+    cenario.addFrame(sf::IntRect(1776,680,222,170));
+    cenario.addFrame(sf::IntRect(0,850,222,170));
+    cenario.addFrame(sf::IntRect(222,850,222,170));
+    cenario.addFrame(sf::IntRect(444,850,222,170));
+    cenario.addFrame(sf::IntRect(666,850,222,170));
+    cenario.addFrame(sf::IntRect(888,850,222,170));
+    cenario.addFrame(sf::IntRect(1110,850,222,170));
+    cenario.addFrame(sf::IntRect(1332,850,222,170));
+    cenario.addFrame(sf::IntRect(1554,850,222,170));
+    cenario.addFrame(sf::IntRect(1776,850,222,170));
+    cenario.addFrame(sf::IntRect(0,1020,222,170));
+    cenario.addFrame(sf::IntRect(222,1020,222,170));
+    cenario.addFrame(sf::IntRect(444,1020,222,170));
+    cenario.addFrame(sf::IntRect(666,1020,222,170));
+    cenario.addFrame(sf::IntRect(888,1020,222,170));
+    cenario.addFrame(sf::IntRect(1110,1020,222,170));
+    cenario.addFrame(sf::IntRect(1332,1020,222,170));
+    cenario.addFrame(sf::IntRect(1554,1020,222,170));
+    cenario.addFrame(sf::IntRect(1776,1020,222,170));
+    cenario.addFrame(sf::IntRect(0,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    cenario.addFrame(sf::IntRect(222,1190,222,170));
+    AnimatedSprite cenarioAnimatedSprite = AnimatedSprite(sf::seconds(0.2), true, false);
+    cenarioAnimatedSprite.setPosition(maskPosition);
+    cenarioAnimatedSprite.setLooped(false);
     
     // animation characters
     sf::Texture textureCharacters;
     if (!textureCharacters.loadFromFile(resourcePath() + "characters.png")) {
-        std::cout << "fail load texture deserto" << std::endl;
+        std::cout << "fail load texture characters.png" << std::endl;
         return -1;
     }
     
-    
     std::vector<AnimatedSprite> currentAnimatedSpriteVec(4);
-    currentAnimatedSpriteVec.at(0) = AnimatedSprite(sf::seconds(0.2), true, false);
-    currentAnimatedSpriteVec.at(1) = AnimatedSprite(sf::seconds(0.2), true, false);
-    currentAnimatedSpriteVec.at(2) = AnimatedSprite(sf::seconds(0.2), true, false);
-    currentAnimatedSpriteVec.at(3) = AnimatedSprite(sf::seconds(0.2), true, false);
+    currentAnimatedSpriteVec.at(0) = AnimatedSprite(sf::seconds(0.2), true, true);
+    currentAnimatedSpriteVec.at(1) = AnimatedSprite(sf::seconds(0.2), true, true);
+    currentAnimatedSpriteVec.at(2) = AnimatedSprite(sf::seconds(0.2), true, true);
+    currentAnimatedSpriteVec.at(3) = AnimatedSprite(sf::seconds(0.2), true, true);
     
     sf::Clock frameClock;
     sf::Time frameTime;
@@ -354,15 +629,16 @@ int main(int argc, char **argv)
 
     Animation charUrso;
     charUrso.setSpriteSheet(textureCharacters);
-    animations.push_back(charUrso);
     charUrso.addFrame(sf::IntRect(268,0,62,57));
     charUrso.addFrame(sf::IntRect(201,0,62,57));
+    animations.push_back(charUrso);
     
     Animation charVaca;
     charVaca.setSpriteSheet(textureCharacters);
     charVaca.addFrame(sf::IntRect(134,0,62,57));
     charVaca.addFrame(sf::IntRect(67,0,62,57));
     charVaca.addFrame(sf::IntRect(0,0,62,57));
+    animations.push_back(charVaca);
     
     std::random_shuffle ( animations.begin(), animations.end() );
     int countAnimation = 0;
@@ -402,6 +678,8 @@ int main(int argc, char **argv)
     int cols = 0;
     bool debugMode = false;
     double progress = 0;
+    double lackProgress = 0.05;
+    double lackProgressCount = 0;
     double w = 640;
     
     int nextChange = 0;
@@ -423,8 +701,6 @@ int main(int argc, char **argv)
             }
         }
         depthMat.convertTo(oldDepth, CV_8UC1, 255.0 / 2024.0);
-        
-        
         //contador da diferenca
         if (differenceImage.channels() == 1) {
             rows = differenceImage.rows;
@@ -437,18 +713,37 @@ int main(int argc, char **argv)
                     }
                 }
             }
-            
             if (totalWhite > 0) {
                 perc = cols*rows;
                 perc = totalWhite/perc;
-                progress += perc;
+                if (perc > lackProgress){
+                    lackProgressCount = 0;
+                    progress += perc;
+                    cenarioAnimatedSprite.setPlayReverse(false);
+                    cenarioAnimatedSprite.play(cenario);
+                    if (cenarioAnimatedSprite.getCurrentFrame() == 60){
+                        specialEffect.restart();
+                        specialEffect.play(feno);
+                    }
+                } else {
+                    lackProgressCount += perc;
+                   if (lackProgressCount > 10 and cenarioAnimatedSprite.getCurrentFrame() < 70){
+                       lackProgressCount = 1;
+                        specialEffect.restart();
+                        specialEffect.play(urubu);
+                        std::cout << " URUBUUUUU:" << std::endl;
+                   } else if (lackProgressCount > 1){
+                       cenarioAnimatedSprite.setPlayReverse(true);
+                   }
+                    
+                }
+                
+                //std::cout  << " progress:" << progress << " - perc:" << perc <<  " - lackProgressCount:" << lackProgressCount <<  " - currentFrame:" << cenarioAnimatedSprite.getCurrentFrame() <<  " -- " << cenarioAnimatedSprite.isPlaying() <<  " - specialEffect:" <<  specialEffect.getCurrentFrame() << std::endl;
+                
             }
         }
-        
         //std::cout << progress << std::endl;
-        
-        
-        //show barra progresso
+         //show barra progresso
         if (debugMode) {
             w = 640*progress/100;
             rectangle( rgbMat,
@@ -467,35 +762,33 @@ int main(int argc, char **argv)
         
         // Clear screen
         window.clear();
-        
-        //draw all
-        window.draw(bgSprite);
-
-        
-        //animation
         frameTime = frameClock.restart();
+
+        //cenario
+        cenarioAnimatedSprite.update(frameTime);
+        window.draw(cenarioAnimatedSprite);
+        
+        //special effects
+        specialEffect.update(frameTime);
+        window.draw(specialEffect);
+        
+        //personagens
         for(int i = 0; i<4; i++) {
-            if (once){
-                currentAnimationVec.at(i) = animations.at(countAnimation++);
-                currentAnimatedSpriteVec.at(i).setMaxIteration(randInt(2,10));
-                currentAnimatedSpriteVec.at(i).setPosition(maskPosition+positionVec.at(i)+pivot);
-                countAnimation++;
-            }
-            currentAnimatedSpriteVec.at(i).play(currentAnimationVec.at(i));
             if (currentAnimatedSpriteVec.at(i).update(frameTime)){
+                std::cout << i << " / countAnimation: " << countAnimation << std::endl;
                 currentAnimationVec.at(i) = animations.at(countAnimation);
                 currentAnimatedSpriteVec.at(i).setMaxIteration(randInt(2,10));
-                countAnimation++;
                 currentAnimatedSpriteVec.at(i).setPosition(maskPosition+positionVec.at(i)+pivot);
+                currentAnimatedSpriteVec.at(i).play(currentAnimationVec.at(i));
+                countAnimation++;
+                
             }
             if (countAnimation >= animations.size()) {
                 countAnimation = 0;
             }
             window.draw(currentAnimatedSpriteVec.at(i));
+            
         }
-        
-        once = false;
-        
         // Update the window
         window.display();
         
