@@ -150,6 +150,7 @@ int main(int argc, char **argv)
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
     // set up AnimatedSprite
+    sf::Vector2f hidePosition(400,400);
     sf::Vector2f maskPosition(34,258);
     sf::Vector2f pivot(-31,-56);
     std::vector<sf::Vector2f> positionVec(4);
@@ -170,32 +171,34 @@ int main(int argc, char **argv)
         return -1;
     }
     Animation urubu;
-    urubu.addFrame(sf::IntRect(0,0,222,170));
-    urubu.addFrame(sf::IntRect(222,0,222,170));
-    urubu.addFrame(sf::IntRect(0,170,222,170));
-    urubu.addFrame(sf::IntRect(222,170,222,170));
-    urubu.addFrame(sf::IntRect(0,340,222,170));
-    urubu.addFrame(sf::IntRect(222,340,222,170));
-    urubu.addFrame(sf::IntRect(0,510,222,170));
-    urubu.addFrame(sf::IntRect(222,510,222,170));
-    urubu.addFrame(sf::IntRect(0,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.setSpriteSheet(textureUrubu);
     urubu.addFrame(sf::IntRect(222,850,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,680,222,170));
+    urubu.addFrame(sf::IntRect(222,510,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(0,510,222,170));
+    urubu.addFrame(sf::IntRect(222,340,222,170));
+    urubu.addFrame(sf::IntRect(0,340,222,170));
+    urubu.addFrame(sf::IntRect(222,170,222,170));
+    urubu.addFrame(sf::IntRect(0,170,222,170));
+    urubu.addFrame(sf::IntRect(222,0,222,170));
+    urubu.addFrame(sf::IntRect(0,0,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(0,850,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    
     
     // animation feno
     sf::Texture textureFeno;
@@ -205,18 +208,15 @@ int main(int argc, char **argv)
     }
     Animation feno;
     feno.setSpriteSheet(textureFeno);
-    feno.addFrame(sf::IntRect(0,0,222,170));
-    feno.addFrame(sf::IntRect(222,0,222,170));
-    feno.addFrame(sf::IntRect(0,170,222,170));
-    feno.addFrame(sf::IntRect(222,170,222,170));
-    feno.addFrame(sf::IntRect(0,340,222,170));
-    feno.addFrame(sf::IntRect(222,340,222,170));
-    feno.addFrame(sf::IntRect(0,510,222,170));
     feno.addFrame(sf::IntRect(222,510,222,170));
-    
-    
-    
-    
+    feno.addFrame(sf::IntRect(0,510,222,170));
+    feno.addFrame(sf::IntRect(222,340,222,170));
+    feno.addFrame(sf::IntRect(0,340,222,170));
+    feno.addFrame(sf::IntRect(222,170,222,170));
+    feno.addFrame(sf::IntRect(0,170,222,170));
+    feno.addFrame(sf::IntRect(222,0,222,170));
+    feno.addFrame(sf::IntRect(0,0,222,170));
+    feno.addFrame(sf::IntRect(222,510,222,170));
     
     // animation cenario
     sf::Texture textureCenario;
@@ -473,6 +473,10 @@ int main(int argc, char **argv)
     currentAnimatedSpriteVec.at(1) = AnimatedSprite(sf::seconds(0.2), true, true);
     currentAnimatedSpriteVec.at(2) = AnimatedSprite(sf::seconds(0.2), true, true);
     currentAnimatedSpriteVec.at(3) = AnimatedSprite(sf::seconds(0.2), true, true);
+    currentAnimatedSpriteVec.at(0).setPosition(hidePosition);
+    currentAnimatedSpriteVec.at(1).setPosition(hidePosition);
+    currentAnimatedSpriteVec.at(2).setPosition(hidePosition);
+    currentAnimatedSpriteVec.at(3).setPosition(hidePosition);
     
     sf::Clock frameClock;
     sf::Time frameTime;
@@ -644,7 +648,6 @@ int main(int argc, char **argv)
     int countAnimation = 0;
     
     std::vector<Animation> currentAnimationVec(4);
-    bool once(true);
     
     
     
@@ -727,14 +730,21 @@ int main(int argc, char **argv)
                     }
                 } else {
                     lackProgressCount += perc;
-                   if (lackProgressCount > 10 and cenarioAnimatedSprite.getCurrentFrame() < 70){
-                       lackProgressCount = 1;
+                    if (lackProgressCount > 1){
+                        cenarioAnimatedSprite.setPlayReverse(true);
+                    }
+                    if (lackProgressCount < 3){
+                        int idx = std::round(lackProgressCount);
+                        currentAnimatedSpriteVec.at(idx).setPosition(hidePosition);
+                        currentAnimatedSpriteVec.at(idx).stop();
+                        std::cout  << " idx: " << idx << " / "<< lackProgress << std::endl;
+                    }
+                    
+                    if (lackProgressCount > 10 and cenarioAnimatedSprite.getCurrentFrame() < 70) {
+                        lackProgressCount = 1;
                         specialEffect.restart();
                         specialEffect.play(urubu);
-                        std::cout << " URUBUUUUU:" << std::endl;
-                   } else if (lackProgressCount > 1){
-                       cenarioAnimatedSprite.setPlayReverse(true);
-                   }
+                    }
                     
                 }
                 
@@ -775,13 +785,11 @@ int main(int argc, char **argv)
         //personagens
         for(int i = 0; i<4; i++) {
             if (currentAnimatedSpriteVec.at(i).update(frameTime)){
-                std::cout << i << " / countAnimation: " << countAnimation << std::endl;
-                currentAnimationVec.at(i) = animations.at(countAnimation);
-                currentAnimatedSpriteVec.at(i).setMaxIteration(randInt(2,10));
+                currentAnimatedSpriteVec.at(i).setMaxIteration(randInt(4,10));
                 currentAnimatedSpriteVec.at(i).setPosition(maskPosition+positionVec.at(i)+pivot);
+                currentAnimationVec.at(i) = animations.at(countAnimation);
                 currentAnimatedSpriteVec.at(i).play(currentAnimationVec.at(i));
                 countAnimation++;
-                
             }
             if (countAnimation >= animations.size()) {
                 countAnimation = 0;
