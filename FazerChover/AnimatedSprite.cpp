@@ -87,6 +87,7 @@ void AnimatedSprite::restart()
     m_isPaused = true;
     currentIteration = 1;
     maxIteration = 0;
+    m_currentFrame = 0;
 }
 
 

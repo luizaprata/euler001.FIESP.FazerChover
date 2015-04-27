@@ -149,10 +149,14 @@ int main(int argc, char **argv)
     }
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
+    //animated sprites
+    std::vector<AnimatedSprite*> animatedSpriteSheets(0);
+    
     // set up AnimatedSprite
-    sf::Vector2f hidePosition(400,400);
+    sf::Vector2f hidePosition(400,800);
     sf::Vector2f maskPosition(34,258);
     sf::Vector2f pivot(-31,-56);
+    sf::Vector2f caveiraPivot(-31,-80);
     std::vector<sf::Vector2f> positionVec(4);
     positionVec.at(0) = sf::Vector2f(195,164);
     positionVec.at(1) = sf::Vector2f(34,164);
@@ -160,10 +164,29 @@ int main(int argc, char **argv)
     positionVec.at(3) = sf::Vector2f(90,164);
     
     
+    //caveira
+    sf::Texture textureCaveira;
+    if (!textureCaveira.loadFromFile(resourcePath() + "caveira.png")) {
+        std::cout << "fail load texture caveira" << std::endl;
+        return -1;
+    }
+    Animation caveira;
+    caveira.setSpriteSheet(textureCaveira);
+    caveira.addFrame(sf::IntRect(0,0,64,57));
+    caveira.addFrame(sf::IntRect(0,57,64,57));
+    caveira.addFrame(sf::IntRect(0,0,64,57));
+    caveira.addFrame(sf::IntRect(0,57,64,57));
+    AnimatedSprite caveiraAnimated = AnimatedSprite(sf::seconds(0.2), true, false);
+    caveiraAnimated.setPosition(maskPosition);
+    caveiraAnimated.setLooped(false);
+    animatedSpriteSheets.push_back(&caveiraAnimated);
+    
+    
     ///SPECIAL EFFECTS
     AnimatedSprite specialEffect = AnimatedSprite(sf::seconds(0.2), true, false);
     specialEffect.setPosition(maskPosition);
     specialEffect.setLooped(false);
+    animatedSpriteSheets.push_back(&specialEffect);
 
     
     //end
@@ -173,7 +196,7 @@ int main(int argc, char **argv)
         return -1;
     }
     Animation end;
-    trovao.setSpriteSheet(textureEnd);
+    end.setSpriteSheet(textureEnd);
     end.addFrame(sf::IntRect(0,0,222,170));
     end.addFrame(sf::IntRect(0,0,222,170));
     end.addFrame(sf::IntRect(0,0,222,170));
@@ -228,7 +251,7 @@ int main(int argc, char **argv)
     //trovao
     sf::Texture textureTrovao;
     if (!textureTrovao.loadFromFile(resourcePath() + "trovao.png")) {
-        std::cout << "fail load texture mergulhador.png" << std::endl;
+        std::cout << "fail load texture trovao.png" << std::endl;
         return -1;
     }
     Animation trovao;
@@ -278,6 +301,7 @@ int main(int argc, char **argv)
     AnimatedSprite thunderEffect = AnimatedSprite(sf::seconds(0.05), true, false);
     thunderEffect.setPosition(maskPosition);
     thunderEffect.setLooped(false);
+    animatedSpriteSheets.push_back(&thunderEffect);
     
     
     //mergulhador
@@ -308,32 +332,50 @@ int main(int argc, char **argv)
     }
     Animation urubu;
     urubu.setSpriteSheet(textureUrubu);
-    urubu.addFrame(sf::IntRect(222,850,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(444,0,222,170));
+    urubu.addFrame(sf::IntRect(666,170,222,170));
+    urubu.addFrame(sf::IntRect(666,510,222,170));
     urubu.addFrame(sf::IntRect(0,680,222,170));
-    urubu.addFrame(sf::IntRect(222,510,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(0,510,222,170));
-    urubu.addFrame(sf::IntRect(222,340,222,170));
-    urubu.addFrame(sf::IntRect(0,340,222,170));
-    urubu.addFrame(sf::IntRect(222,170,222,170));
-    urubu.addFrame(sf::IntRect(0,170,222,170));
+    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(444,680,222,170));
+    urubu.addFrame(sf::IntRect(666,680,222,170));
     urubu.addFrame(sf::IntRect(222,0,222,170));
     urubu.addFrame(sf::IntRect(0,0,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
-    urubu.addFrame(sf::IntRect(0,850,222,170));
-    urubu.addFrame(sf::IntRect(222,680,222,170));
+    urubu.addFrame(sf::IntRect(222,0,222,170));
+    urubu.addFrame(sf::IntRect(0,0,222,170));
+    urubu.addFrame(sf::IntRect(222,0,222,170));
+    urubu.addFrame(sf::IntRect(0,0,222,170));
+    urubu.addFrame(sf::IntRect(222,0,222,170));
+    urubu.addFrame(sf::IntRect(0,0,222,170));
+    urubu.addFrame(sf::IntRect(222,0,222,170));
+    urubu.addFrame(sf::IntRect(0,0,222,170));
+    urubu.addFrame(sf::IntRect(222,0,222,170));
+    urubu.addFrame(sf::IntRect(0,0,222,170));
+    urubu.addFrame(sf::IntRect(222,0,222,170));
+    urubu.addFrame(sf::IntRect(0,0,222,170));
+    urubu.addFrame(sf::IntRect(222,0,222,170));
+    urubu.addFrame(sf::IntRect(0,0,222,170));
+    urubu.addFrame(sf::IntRect(666,0,222,170));
+    urubu.addFrame(sf::IntRect(666,680,222,170));
+    urubu.addFrame(sf::IntRect(0,170,222,170));
+    urubu.addFrame(sf::IntRect(222,170,222,170));
+    urubu.addFrame(sf::IntRect(444,170,222,170));
+    urubu.addFrame(sf::IntRect(0,340,222,170));
+    urubu.addFrame(sf::IntRect(222,340,222,170));
+    urubu.addFrame(sf::IntRect(444,340,222,170));
+    urubu.addFrame(sf::IntRect(666,340,222,170));
+    urubu.addFrame(sf::IntRect(0,510,222,170));
+    urubu.addFrame(sf::IntRect(222,510,222,170));
+    urubu.addFrame(sf::IntRect(0,510,222,170));
+    urubu.addFrame(sf::IntRect(222,510,222,170));
+    urubu.addFrame(sf::IntRect(0,510,222,170));
+    urubu.addFrame(sf::IntRect(222,510,222,170));
+    urubu.addFrame(sf::IntRect(0,510,222,170));
+    urubu.addFrame(sf::IntRect(222,510,222,170));
+    urubu.addFrame(sf::IntRect(0,510,222,170));
+    urubu.addFrame(sf::IntRect(222,510,222,170));
+    urubu.addFrame(sf::IntRect(0,510,222,170));
+    urubu.addFrame(sf::IntRect(222,510,222,170));
     
     
     //animation ovni
@@ -658,6 +700,10 @@ int main(int argc, char **argv)
     currentAnimatedSpriteVec.at(1).setPosition(hidePosition);
     currentAnimatedSpriteVec.at(2).setPosition(hidePosition);
     currentAnimatedSpriteVec.at(3).setPosition(hidePosition);
+    animatedSpriteSheets.push_back(&currentAnimatedSpriteVec.at(0));
+    animatedSpriteSheets.push_back(&currentAnimatedSpriteVec.at(1));
+    animatedSpriteSheets.push_back(&currentAnimatedSpriteVec.at(2));
+    animatedSpriteSheets.push_back(&currentAnimatedSpriteVec.at(3));
     
     sf::Clock frameClock;
     sf::Time frameTime;
@@ -862,7 +908,7 @@ int main(int argc, char **argv)
     int cols = 0;
     bool debugMode = false;
     double progress = 0;
-    double lackProgress = 0.05;
+    double lackProgress = 0.1;
     double lackProgressCount = 0;
     double w = 640;
     
@@ -893,7 +939,7 @@ int main(int argc, char **argv)
             rows = differenceImage.rows;
             cols = differenceImage.cols;
             totalWhite = 0;
-            for( i = 0; i < rows; ++i){
+            for(i = 0; i < rows; ++i){
                 for( j = 0; j < cols; ++j ){
                     if (differenceImage.at<uchar>(i,j) > 0){
                         totalWhite++;
@@ -905,13 +951,13 @@ int main(int argc, char **argv)
                 perc = totalWhite/perc;
                 reachedEnd = cenarioAnimatedSprite.getCurrentFrame() > 226;
                 
-                if (perc > lackProgress){
+                if (!reachedEnd && perc > lackProgress){
                     lackProgressCount = 0;
                     progress += perc;
                     
                     idx = ((int)progress % 4);
-                    std::cout  << " progress: " << idx << " / "<< progress << " / frame:" << cenarioAnimatedSprite.getCurrentFrame() << std::endl;
-                    if (progress > 1 && cenarioAnimatedSprite.getCurrentFrame() > 10 && !currentAnimatedSpriteVec.at(idx).isPlaying()){
+                    //std::cout  << " progress: " << idx << " / "<< progress << " / frame:" << cenarioAnimatedSprite.getCurrentFrame() << std::endl;
+                    if (progress > 1 && cenarioAnimatedSprite.getCurrentFrame() > 10 && idx < 4 && !currentAnimatedSpriteVec.at(idx).isPlaying()){
                         currentAnimatedSpriteVec.at(idx).restart();
                         specialEffect.stop();
                     }
@@ -945,26 +991,47 @@ int main(int argc, char **argv)
                 } else {
                     progress = 0;
                     lackProgressCount += perc;
-                    if (lackProgressCount > 1){
+                    if (lackProgressCount > 1 && !reachedEnd){
                         cenarioAnimatedSprite.setPlayReverse(true);
-                        
                     }
                     
                     idx = ((int)lackProgressCount % 4);
-                    std::cout  << " lackProgress: " << idx << " / "<< lackProgressCount << std::endl;
-                    if (currentAnimatedSpriteVec.at(idx).isPlaying()){
+                    //std::cout  << " lackProgress: " << idx << " / "<< lackProgressCount << std::endl;
+                    if (idx<4 && currentAnimatedSpriteVec.at(idx).isPlaying()){
                         idx = std::round(lackProgressCount);
                         currentAnimatedSpriteVec.at(idx).setPosition(hidePosition);
                         currentAnimatedSpriteVec.at(idx).stop();
                     }
                     
-                    if (lackProgressCount > 4 and cenarioAnimatedSprite.getCurrentFrame() < 70 and !specialEffect.isPlaying()) {
+                    if (lackProgressCount > 4 && cenarioAnimatedSprite.getCurrentFrame() < 70 && !specialEffect.isPlaying()) {
                         specialEffect.restart();
                         specialEffect.setLooped(true);
                         specialEffect.play(urubu);
                         specialEffect.setPosition(maskPosition);
                     }
                     
+                    if (reachedEnd and !specialEffect.isPlaying()) {
+                        specialEffect.restart();
+                        specialEffect.setLooped(true);
+                        specialEffect.play(end);
+                        specialEffect.setPosition(maskPosition);
+                    }
+                    
+                }
+                
+                
+                
+                if (cenarioAnimatedSprite.getCurrentFrame() < 70 && (int)cenarioAnimatedSprite.getCurrentFrame()%8 == 0 && !caveiraAnimated.isPlaying()){
+                    caveiraAnimated.restart();
+                    caveiraAnimated.setLooped(false);
+                    int idxCaveira = randInt(0,3);
+                    caveiraAnimated.setPosition(maskPosition+positionVec.at(idxCaveira)+caveiraPivot);
+                    caveiraAnimated.play(caveira);
+                    
+                }
+                
+                if (!caveiraAnimated.isPlaying()){
+                    caveiraAnimated.setPosition(hidePosition);
                 }
                 
                 if (!specialEffect.isPlaying()){
@@ -974,7 +1041,7 @@ int main(int argc, char **argv)
                     thunderEffect.setPosition(hidePosition);
                 }
                 
-                //std::cout  << " progress:" << progress << " - perc:" << perc <<  " - lackProgressCount:" << lackProgressCount <<  " - currentFrame:" << cenarioAnimatedSprite.getCurrentFrame() <<  " -- " << cenarioAnimatedSprite.isPlaying() <<  " - specialEffect:" <<  specialEffect.getCurrentFrame() << std::endl;
+                std::cout  << "progress:" << progress << "\nperc:" << perc <<  "\ncurrentFrame:" << cenarioAnimatedSprite.getCurrentFrame() <<  " -- " << cenarioAnimatedSprite.isPlaying() << std::endl;
                 
             }
         }
@@ -1011,15 +1078,23 @@ int main(int argc, char **argv)
         thunderEffect.update(frameTime);
         window.draw(thunderEffect);
         
+        caveiraAnimated.update(frameTime);
+        window.draw(caveiraAnimated);
+        
         //personagens
         for(int i = 0; i<4; i++) {
-            if (cenarioAnimatedSprite.getCurrentFrame() > 10 and currentAnimatedSpriteVec.at(i).update(frameTime)){
-                currentAnimatedSpriteVec.at(i).setMaxIteration(randInt(4,10));
-                currentAnimatedSpriteVec.at(i).setPosition(maskPosition+positionVec.at(i)+pivot);
-                currentAnimationVec.at(i) = animations.at(countAnimation);
-                currentAnimatedSpriteVec.at(i).play(currentAnimationVec.at(i));
-                countAnimation++;
+            if (cenarioAnimatedSprite.getCurrentFrame() > 10){
+                if (currentAnimatedSpriteVec.at(i).update(frameTime)){
+                    currentAnimatedSpriteVec.at(i).setMaxIteration(randInt(4,10));
+                    currentAnimatedSpriteVec.at(i).setPosition(maskPosition+positionVec.at(i)+pivot);
+                    currentAnimationVec.at(i) = animations.at(countAnimation);
+                    currentAnimatedSpriteVec.at(i).play(currentAnimationVec.at(i));
+                    countAnimation++;
+                }
+            } else {
+                currentAnimatedSpriteVec.at(i).setPosition(hidePosition);
             }
+            
             if (countAnimation >= animations.size()) {
                 countAnimation = 0;
             }
@@ -1061,7 +1136,16 @@ int main(int argc, char **argv)
                     
                     // reset
                     case sf::Keyboard::R:
+                        std::cout << "restart" << animatedSpriteSheets.size() << std::endl;
+                        for(i = 0; i < animatedSpriteSheets.size(); i++){
+                            animatedSpriteSheets.at(i)->setPosition(hidePosition);
+                            animatedSpriteSheets.at(i)->stop();
+                            
+                        }
                         progress = 0;
+                        reachedEnd = false;
+                        cenarioAnimatedSprite.restart();
+                        cenarioAnimatedSprite.play(cenario);
                         break;
                     
                     //'d' has been pressed. this will debug mode
