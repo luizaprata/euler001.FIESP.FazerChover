@@ -28,14 +28,12 @@
 		6C3BB6C91AE97B87005BD3BF /* mascara.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C3BB6C81AE97B87005BD3BF /* mascara.png */; };
 		6C3BB6CC1AE98311005BD3BF /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3BB6CA1AE98311005BD3BF /* AnimatedSprite.cpp */; };
 		6C3BB6CF1AE983DF005BD3BF /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3BB6CD1AE983DF005BD3BF /* Animation.cpp */; };
+		6C590F311AEE85720007A59E /* end.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C590F301AEE85720007A59E /* end.png */; };
 		6C96013D1AEC250C00733EF7 /* characters.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C96013C1AEC250C00733EF7 /* characters.png */; };
 		6C9601411AED55E100733EF7 /* cenario.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601401AED55E000733EF7 /* cenario.png */; };
-		6C9601431AED834C00733EF7 /* escafrandro.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601421AED834C00733EF7 /* escafrandro.png */; };
 		6C96014B1AED836300733EF7 /* feno.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601441AED836300733EF7 /* feno.png */; };
 		6C96014C1AED836300733EF7 /* mergulhador.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601451AED836300733EF7 /* mergulhador.png */; };
 		6C96014D1AED836300733EF7 /* ovni.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601461AED836300733EF7 /* ovni.png */; };
-		6C96014E1AED836300733EF7 /* peixes.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601471AED836300733EF7 /* peixes.png */; };
-		6C96014F1AED836300733EF7 /* sereia.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601481AED836300733EF7 /* sereia.png */; };
 		6C9601501AED836300733EF7 /* trovao.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601491AED836300733EF7 /* trovao.png */; };
 		6C9601511AED836300733EF7 /* urubu.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C96014A1AED836300733EF7 /* urubu.png */; };
 		6CEABBED1AE8A8CC00A12DB1 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CEABBEC1AE8A8CC00A12DB1 /* ResourcePath.mm */; };
@@ -71,14 +69,12 @@
 		6C3BB6CD1AE983DF005BD3BF /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
 		6C3BB6D01AE984CF005BD3BF /* AnimatedSprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AnimatedSprite.hpp; sourceTree = "<group>"; };
 		6C3BB6D11AE984CF005BD3BF /* Animation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
+		6C590F301AEE85720007A59E /* end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = end.png; sourceTree = "<group>"; };
 		6C96013C1AEC250C00733EF7 /* characters.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = characters.png; sourceTree = "<group>"; };
 		6C9601401AED55E000733EF7 /* cenario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cenario.png; sourceTree = "<group>"; };
-		6C9601421AED834C00733EF7 /* escafrandro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = escafrandro.png; sourceTree = "<group>"; };
 		6C9601441AED836300733EF7 /* feno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feno.png; sourceTree = "<group>"; };
 		6C9601451AED836300733EF7 /* mergulhador.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mergulhador.png; sourceTree = "<group>"; };
 		6C9601461AED836300733EF7 /* ovni.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ovni.png; sourceTree = "<group>"; };
-		6C9601471AED836300733EF7 /* peixes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = peixes.png; sourceTree = "<group>"; };
-		6C9601481AED836300733EF7 /* sereia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sereia.png; sourceTree = "<group>"; };
 		6C9601491AED836300733EF7 /* trovao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trovao.png; sourceTree = "<group>"; };
 		6C96014A1AED836300733EF7 /* urubu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = urubu.png; sourceTree = "<group>"; };
 		6CEABBE71AE8A8CC00A12DB1 /* FazerChover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FazerChover.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,14 +184,12 @@
 		6CEABBF11AE8A8CC00A12DB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6C590F301AEE85720007A59E /* end.png */,
 				6C9601441AED836300733EF7 /* feno.png */,
 				6C9601451AED836300733EF7 /* mergulhador.png */,
 				6C9601461AED836300733EF7 /* ovni.png */,
-				6C9601471AED836300733EF7 /* peixes.png */,
-				6C9601481AED836300733EF7 /* sereia.png */,
 				6C9601491AED836300733EF7 /* trovao.png */,
 				6C96014A1AED836300733EF7 /* urubu.png */,
-				6C9601421AED834C00733EF7 /* escafrandro.png */,
 				6C9601401AED55E000733EF7 /* cenario.png */,
 				6C96013C1AEC250C00733EF7 /* characters.png */,
 				6C3BB6C81AE97B87005BD3BF /* mascara.png */,
@@ -265,17 +259,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CEABBF91AE8A8CC00A12DB1 /* icon.png in Resources */,
-				6C96014E1AED836300733EF7 /* peixes.png in Resources */,
 				6C96014D1AED836300733EF7 /* ovni.png in Resources */,
 				6C9601511AED836300733EF7 /* urubu.png in Resources */,
 				6CEABC541AE94B7900A12DB1 /* bg_deserto.png in Resources */,
 				6C96013D1AEC250C00733EF7 /* characters.png in Resources */,
 				6C96014B1AED836300733EF7 /* feno.png in Resources */,
 				6C9601411AED55E100733EF7 /* cenario.png in Resources */,
-				6C9601431AED834C00733EF7 /* escafrandro.png in Resources */,
 				6C3BB6C91AE97B87005BD3BF /* mascara.png in Resources */,
 				6C96014C1AED836300733EF7 /* mergulhador.png in Resources */,
-				6C96014F1AED836300733EF7 /* sereia.png in Resources */,
+				6C590F311AEE85720007A59E /* end.png in Resources */,
 				6C9601501AED836300733EF7 /* trovao.png in Resources */,
 				6CEABBF71AE8A8CC00A12DB1 /* sansation.ttf in Resources */,
 			);

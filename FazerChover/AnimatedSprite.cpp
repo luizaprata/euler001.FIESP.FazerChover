@@ -43,8 +43,7 @@ namespace stdmath {
 AnimatedSprite::AnimatedSprite(sf::Time frameTime, bool paused, bool looped) :
 m_animation(NULL), m_frameTime(frameTime), m_currentFrame(0), m_isPaused(paused), m_isLooped(looped), m_texture(NULL)
 {
-    currentIteration = 1;
-    maxIteration = 0;
+
 }
 
 
@@ -54,7 +53,7 @@ void AnimatedSprite::setAnimation(const Animation& animation)
     m_animation = &animation;
     m_texture = m_animation->getSpriteSheet();
     m_currentFrame = 0;
-    currentIteration = 1;
+    currentIteration = 0;
     maxIteration = 0;
     setFrame(m_currentFrame);
 }
