@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C1C619F1AF1CC3F00309C96 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C1C619E1AF1CC3F00309C96 /* start.png */; };
 		6C3BB6B61AE971B8005BD3BF /* libopencv_calib3d.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3BB6A41AE971B8005BD3BF /* libopencv_calib3d.2.4.10.dylib */; };
 		6C3BB6B71AE971B8005BD3BF /* libopencv_contrib.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3BB6A51AE971B8005BD3BF /* libopencv_contrib.2.4.10.dylib */; };
 		6C3BB6B81AE971B8005BD3BF /* libopencv_core.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3BB6A61AE971B8005BD3BF /* libopencv_core.2.4.10.dylib */; };
@@ -29,24 +30,19 @@
 		6C3BB6CC1AE98311005BD3BF /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3BB6CA1AE98311005BD3BF /* AnimatedSprite.cpp */; };
 		6C3BB6CF1AE983DF005BD3BF /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3BB6CD1AE983DF005BD3BF /* Animation.cpp */; };
 		6C590F311AEE85720007A59E /* end.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C590F301AEE85720007A59E /* end.png */; };
-		6C590F331AEE98500007A59E /* caveira.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C590F321AEE98500007A59E /* caveira.png */; };
 		6C96013D1AEC250C00733EF7 /* characters.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C96013C1AEC250C00733EF7 /* characters.png */; };
 		6C9601411AED55E100733EF7 /* cenario.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601401AED55E000733EF7 /* cenario.png */; };
-		6C96014B1AED836300733EF7 /* feno.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601441AED836300733EF7 /* feno.png */; };
-		6C96014C1AED836300733EF7 /* mergulhador.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601451AED836300733EF7 /* mergulhador.png */; };
-		6C96014D1AED836300733EF7 /* ovni.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601461AED836300733EF7 /* ovni.png */; };
 		6C9601501AED836300733EF7 /* trovao.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601491AED836300733EF7 /* trovao.png */; };
-		6C9601511AED836300733EF7 /* urubu.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C96014A1AED836300733EF7 /* urubu.png */; };
 		6CEABBED1AE8A8CC00A12DB1 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CEABBEC1AE8A8CC00A12DB1 /* ResourcePath.mm */; };
 		6CEABBF01AE8A8CC00A12DB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CEABBEF1AE8A8CC00A12DB1 /* main.cpp */; };
 		6CEABBF71AE8A8CC00A12DB1 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CEABBF61AE8A8CC00A12DB1 /* sansation.ttf */; };
 		6CEABBF91AE8A8CC00A12DB1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CEABBF81AE8A8CC00A12DB1 /* icon.png */; };
 		6CEABC2A1AE8ADF600A12DB1 /* libfreenect_sync.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC111AE8ADF600A12DB1 /* libfreenect_sync.dylib */; };
 		6CEABC2B1AE8ADF600A12DB1 /* libfreenect.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEABC121AE8ADF600A12DB1 /* libfreenect.dylib */; };
-		6CEABC541AE94B7900A12DB1 /* bg_deserto.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CEABC531AE94B7900A12DB1 /* bg_deserto.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C1C619E1AF1CC3F00309C96 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
 		6C3BB6A41AE971B8005BD3BF /* libopencv_calib3d.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.2.4.10.dylib; path = "../../opencv-2.4.10/SharedLibs/lib/libopencv_calib3d.2.4.10.dylib"; sourceTree = "<group>"; };
 		6C3BB6A51AE971B8005BD3BF /* libopencv_contrib.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_contrib.2.4.10.dylib; path = "../../opencv-2.4.10/SharedLibs/lib/libopencv_contrib.2.4.10.dylib"; sourceTree = "<group>"; };
 		6C3BB6A61AE971B8005BD3BF /* libopencv_core.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.10.dylib; path = "../../opencv-2.4.10/SharedLibs/lib/libopencv_core.2.4.10.dylib"; sourceTree = "<group>"; };
@@ -71,14 +67,9 @@
 		6C3BB6D01AE984CF005BD3BF /* AnimatedSprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AnimatedSprite.hpp; sourceTree = "<group>"; };
 		6C3BB6D11AE984CF005BD3BF /* Animation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
 		6C590F301AEE85720007A59E /* end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = end.png; sourceTree = "<group>"; };
-		6C590F321AEE98500007A59E /* caveira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caveira.png; sourceTree = "<group>"; };
 		6C96013C1AEC250C00733EF7 /* characters.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = characters.png; sourceTree = "<group>"; };
 		6C9601401AED55E000733EF7 /* cenario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cenario.png; sourceTree = "<group>"; };
-		6C9601441AED836300733EF7 /* feno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feno.png; sourceTree = "<group>"; };
-		6C9601451AED836300733EF7 /* mergulhador.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mergulhador.png; sourceTree = "<group>"; };
-		6C9601461AED836300733EF7 /* ovni.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ovni.png; sourceTree = "<group>"; };
 		6C9601491AED836300733EF7 /* trovao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trovao.png; sourceTree = "<group>"; };
-		6C96014A1AED836300733EF7 /* urubu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = urubu.png; sourceTree = "<group>"; };
 		6CEABBE71AE8A8CC00A12DB1 /* FazerChover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FazerChover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CEABBEB1AE8A8CC00A12DB1 /* FazerChover-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FazerChover-Info.plist"; sourceTree = "<group>"; };
 		6CEABBEC1AE8A8CC00A12DB1 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -88,7 +79,6 @@
 		6CEABBF81AE8A8CC00A12DB1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		6CEABC111AE8ADF600A12DB1 /* libfreenect_sync.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreenect_sync.dylib; path = ../../../../../usr/local/lib/libfreenect_sync.dylib; sourceTree = "<group>"; };
 		6CEABC121AE8ADF600A12DB1 /* libfreenect.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreenect.dylib; path = ../../../../../usr/local/lib/libfreenect.dylib; sourceTree = "<group>"; };
-		6CEABC531AE94B7900A12DB1 /* bg_deserto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_deserto.png; sourceTree = "<group>"; };
 		6CEABC551AE94BAE00A12DB1 /* trilha_deserto.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = trilha_deserto.ogg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,18 +176,13 @@
 		6CEABBF11AE8A8CC00A12DB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6C590F321AEE98500007A59E /* caveira.png */,
+				6C1C619E1AF1CC3F00309C96 /* start.png */,
 				6C590F301AEE85720007A59E /* end.png */,
-				6C9601441AED836300733EF7 /* feno.png */,
-				6C9601451AED836300733EF7 /* mergulhador.png */,
-				6C9601461AED836300733EF7 /* ovni.png */,
 				6C9601491AED836300733EF7 /* trovao.png */,
-				6C96014A1AED836300733EF7 /* urubu.png */,
 				6C9601401AED55E000733EF7 /* cenario.png */,
 				6C96013C1AEC250C00733EF7 /* characters.png */,
 				6C3BB6C81AE97B87005BD3BF /* mascara.png */,
 				6CEABC551AE94BAE00A12DB1 /* trilha_deserto.ogg */,
-				6CEABC531AE94B7900A12DB1 /* bg_deserto.png */,
 				6CEABBF61AE8A8CC00A12DB1 /* sansation.ttf */,
 				6CEABBF81AE8A8CC00A12DB1 /* icon.png */,
 			);
@@ -261,16 +246,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C590F331AEE98500007A59E /* caveira.png in Resources */,
 				6CEABBF91AE8A8CC00A12DB1 /* icon.png in Resources */,
-				6C96014D1AED836300733EF7 /* ovni.png in Resources */,
-				6C9601511AED836300733EF7 /* urubu.png in Resources */,
-				6CEABC541AE94B7900A12DB1 /* bg_deserto.png in Resources */,
 				6C96013D1AEC250C00733EF7 /* characters.png in Resources */,
-				6C96014B1AED836300733EF7 /* feno.png in Resources */,
+				6C1C619F1AF1CC3F00309C96 /* start.png in Resources */,
 				6C9601411AED55E100733EF7 /* cenario.png in Resources */,
 				6C3BB6C91AE97B87005BD3BF /* mascara.png in Resources */,
-				6C96014C1AED836300733EF7 /* mergulhador.png in Resources */,
 				6C590F311AEE85720007A59E /* end.png in Resources */,
 				6C9601501AED836300733EF7 /* trovao.png in Resources */,
 				6CEABBF71AE8A8CC00A12DB1 /* sansation.ttf in Resources */,
