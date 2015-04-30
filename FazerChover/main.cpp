@@ -445,8 +445,6 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(2442,0,222,170));
     cenario.addFrame(sf::IntRect(2220,0,222,170));
     cenario.addFrame(sf::IntRect(2442,0,222,170));
-    cenario.addFrame(sf::IntRect(2220,0,222,170));
-    cenario.addFrame(sf::IntRect(2220,0,222,170));
     cenario.addFrame(sf::IntRect(2664,0,222,170));
     cenario.addFrame(sf::IntRect(2886,0,222,170));
     cenario.addFrame(sf::IntRect(3108,0,222,170));
@@ -713,16 +711,19 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(666,2550,222,170));
     cenario.addFrame(sf::IntRect(888,2550,222,170));
     cenario.addFrame(sf::IntRect(1110,2550,222,170));
-    cenario.addFrame(sf::IntRect(1110,2550,222,170));
     cenario.addFrame(sf::IntRect(1332,2550,222,170));
+    cenario.addFrame(sf::IntRect(1554,2550,222,170));
     cenario.addFrame(sf::IntRect(1554,2550,222,170));
     cenario.addFrame(sf::IntRect(1776,2550,222,170));
     cenario.addFrame(sf::IntRect(1998,2550,222,170));
     cenario.addFrame(sf::IntRect(2220,2550,222,170));
     cenario.addFrame(sf::IntRect(2442,2550,222,170));
     cenario.addFrame(sf::IntRect(2664,2550,222,170));
-    cenario.addFrame(sf::IntRect(2664,2550,222,170));
-    cenario.addFrame(sf::IntRect(2664,2550,222,170));
+    cenario.addFrame(sf::IntRect(2886,2550,222,170));
+    cenario.addFrame(sf::IntRect(3108,2550,222,170));
+    cenario.addFrame(sf::IntRect(3108,2550,222,170));
+    cenario.addFrame(sf::IntRect(3108,2550,222,170));
+
 
     AnimatedSprite cenarioAnimatedSprite = AnimatedSprite(sf::seconds(FPS), true, false);
     cenarioAnimatedSprite.setPosition(maskPosition);
@@ -1044,8 +1045,10 @@ int main(int argc, char **argv)
                         auto since_epoch = time.time_since_epoch();
                         auto millis = std::chrono::duration_cast<std::chrono::milliseconds>(since_epoch);
                         long now = millis.count();
-                        file << filename << now << suffix;
+                        file << "/Users/luizaprata/Desktop/snapshot/"<< filename << now << suffix;
                         cv::imwrite(file.str(), rgbMat);
+                        
+                        std::cout << file.str() << std::endl;
                         
                     }
                     
