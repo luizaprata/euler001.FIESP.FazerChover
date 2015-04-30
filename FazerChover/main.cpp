@@ -157,14 +157,15 @@ int main(int argc, char **argv)
     sf::Vector2f maskPosition(34,258);
     sf::Vector2f pivot(-31,-56);
     std::vector<sf::Vector2f> positionVec(4);
-    positionVec.at(0) = sf::Vector2f(195,164);
-    positionVec.at(1) = sf::Vector2f(34,164);
-    positionVec.at(2) = sf::Vector2f(133,164);
-    positionVec.at(3) = sf::Vector2f(90,164);
+    positionVec.at(0) = sf::Vector2f(133,164);
+    positionVec.at(1) = sf::Vector2f(90,164);
+    positionVec.at(2) = sf::Vector2f(195,164);
+    positionVec.at(3) = sf::Vector2f(34,164);
+    
     
     
     double FPS = 0.2;
-    double FRAME_START_ANIM_CHARS = 8;
+    double FRAME_START_ANIM_CHARS = 14;
     
     
     
@@ -426,6 +427,8 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(0,0,222,170));
     cenario.addFrame(sf::IntRect(0,0,222,170));
     cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
+    cenario.addFrame(sf::IntRect(0,0,222,170));
     cenario.addFrame(sf::IntRect(222,0,222,170));
     cenario.addFrame(sf::IntRect(444,0,222,170));
     cenario.addFrame(sf::IntRect(666,0,222,170));
@@ -436,7 +439,14 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(1776,0,222,170));
     cenario.addFrame(sf::IntRect(1998,0,222,170));
     cenario.addFrame(sf::IntRect(2220,0,222,170));
+    cenario.addFrame(sf::IntRect(2220,0,222,170));
+    cenario.addFrame(sf::IntRect(2220,0,222,170));
+    cenario.addFrame(sf::IntRect(2220,0,222,170));
     cenario.addFrame(sf::IntRect(2442,0,222,170));
+    cenario.addFrame(sf::IntRect(2220,0,222,170));
+    cenario.addFrame(sf::IntRect(2442,0,222,170));
+    cenario.addFrame(sf::IntRect(2220,0,222,170));
+    cenario.addFrame(sf::IntRect(2220,0,222,170));
     cenario.addFrame(sf::IntRect(2664,0,222,170));
     cenario.addFrame(sf::IntRect(2886,0,222,170));
     cenario.addFrame(sf::IntRect(3108,0,222,170));
@@ -448,16 +458,13 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(444,170,222,170));
     cenario.addFrame(sf::IntRect(666,170,222,170));
     cenario.addFrame(sf::IntRect(888,170,222,170));
+    cenario.addFrame(sf::IntRect(666,170,222,170));
+    cenario.addFrame(sf::IntRect(888,170,222,170));
     cenario.addFrame(sf::IntRect(1110,170,222,170));
     cenario.addFrame(sf::IntRect(1332,170,222,170));
     cenario.addFrame(sf::IntRect(1554,170,222,170));
     cenario.addFrame(sf::IntRect(1776,170,222,170));
     cenario.addFrame(sf::IntRect(1998,170,222,170));
-    cenario.addFrame(sf::IntRect(1776,170,222,170));
-    cenario.addFrame(sf::IntRect(1998,170,222,170));
-    cenario.addFrame(sf::IntRect(1776,170,222,170));
-    cenario.addFrame(sf::IntRect(1554,170,222,170));
-    cenario.addFrame(sf::IntRect(1776,170,222,170));
     cenario.addFrame(sf::IntRect(2220,170,222,170));
     cenario.addFrame(sf::IntRect(2442,170,222,170));
     cenario.addFrame(sf::IntRect(2664,170,222,170));
@@ -706,21 +713,17 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(666,2550,222,170));
     cenario.addFrame(sf::IntRect(888,2550,222,170));
     cenario.addFrame(sf::IntRect(1110,2550,222,170));
+    cenario.addFrame(sf::IntRect(1110,2550,222,170));
     cenario.addFrame(sf::IntRect(1332,2550,222,170));
     cenario.addFrame(sf::IntRect(1554,2550,222,170));
     cenario.addFrame(sf::IntRect(1776,2550,222,170));
     cenario.addFrame(sf::IntRect(1998,2550,222,170));
     cenario.addFrame(sf::IntRect(2220,2550,222,170));
-    cenario.addFrame(sf::IntRect(2220,2550,222,170));
     cenario.addFrame(sf::IntRect(2442,2550,222,170));
     cenario.addFrame(sf::IntRect(2664,2550,222,170));
-    cenario.addFrame(sf::IntRect(2886,2550,222,170));
-    cenario.addFrame(sf::IntRect(3108,2550,222,170));
-    cenario.addFrame(sf::IntRect(3330,2550,222,170));
-    cenario.addFrame(sf::IntRect(3552,2550,222,170));
-    cenario.addFrame(sf::IntRect(3774,2550,222,170));
-    cenario.addFrame(sf::IntRect(3774,2550,222,170));
-    cenario.addFrame(sf::IntRect(3774,2550,222,170));
+    cenario.addFrame(sf::IntRect(2664,2550,222,170));
+    cenario.addFrame(sf::IntRect(2664,2550,222,170));
+
     AnimatedSprite cenarioAnimatedSprite = AnimatedSprite(sf::seconds(FPS), true, false);
     cenarioAnimatedSprite.setPosition(maskPosition);
     cenarioAnimatedSprite.setLooped(false);
@@ -929,7 +932,7 @@ int main(int argc, char **argv)
     //keyboard control
     std::ostringstream file;
     string filename("snapshot");
-    string suffix(".png");
+    string suffix(".bmp");
     int i_snap(0);
     int freenect_angle(0);
     int current_freenect_angle(-1);
@@ -955,6 +958,7 @@ int main(int argc, char **argv)
     double w = 640;
     
     bool newAnimation = true;
+    bool newSnap = true;
     
     int nextChange = 0;
     int idx = 0;
@@ -995,32 +999,31 @@ int main(int argc, char **argv)
                 perc = cols*rows;
                 perc = totalWhite/perc;
                 reachedEnd = cenarioAnimatedSprite.getCurrentFrame() > 293;
+                
                 if (!reachedEnd && perc > lackProgress){ //forward
                     lackProgressCount = 0;
                     progress += 0.25;
                     
                     idx = ((int)progress % 4);
                     //std::cout  << "+ " << progress << "\tidx: " << idx << std::endl;
-                    if (newAnimation && cenarioAnimatedSprite.getCurrentFrame() > FRAME_START_ANIM_CHARS && idx < 4){
-                        if (countAnimation+countChar >= animations.size()) {
-                            countAnimation = 0;
+                    if (cenarioAnimatedSprite.getCurrentFrame() > FRAME_START_ANIM_CHARS){
+                        if (newAnimation && idx < 4){
+                            if (countAnimation+countChar >= animations.size()) {
+                                countAnimation = 0;
+                            }
+                            currentAnimatedSpriteVec.at(countChar).restart();
+                            currentAnimatedSpriteVec.at(countChar).play(animations.at(countAnimation+countChar));
+                            currentAnimatedSpriteVec.at(countChar).setPosition(maskPosition+positionVec.at(countChar)+pivot);
+                            countChar++;
+                            if (countChar >= currentAnimatedSpriteVec.size()){
+                                newAnimation = false;
+                            }
                         }
-                        currentAnimationVec.at(countChar) = animations.at(countAnimation+countChar);
+                        if (!newAnimation && !currentAnimatedSpriteVec.at(idx).isPlaying() and idx < 4){
+                            currentAnimatedSpriteVec.at(idx).play(animations.at(countAnimation+idx));
+                            currentAnimatedSpriteVec.at(idx).setPosition(maskPosition+positionVec.at(idx)+pivot);
                         
-                        std::cout  << "PLAY:: " << countChar << " // countAnimation: " << countAnimation+countChar << std::endl;
-                        currentAnimatedSpriteVec.at(countChar).play(currentAnimationVec.at(countChar));
-                        currentAnimatedSpriteVec.at(countChar).setPosition(maskPosition+positionVec.at(countChar)+pivot);
-                        countChar++;
-                        if (countChar >= currentAnimatedSpriteVec.size()){
-                            newAnimation = false;
                         }
-                        startAnimated.stop();
-                    }
-                    
-                    if (!newAnimation && !currentAnimatedSpriteVec.at(idx).isPlaying() and idx < 4){
-                        currentAnimatedSpriteVec.at(idx).play(currentAnimationVec.at(idx));
-                        currentAnimatedSpriteVec.at(idx).setPosition(maskPosition+positionVec.at(idx)+pivot);
-                        
                     }
                     
                     cenarioAnimatedSprite.setPlayReverse(false);
@@ -1033,6 +1036,27 @@ int main(int argc, char **argv)
                         thunderEffect.setPosition(maskPosition);
                     }
                     
+                    if (newSnap && cenarioAnimatedSprite.getCurrentFrame() == 20) {
+                        newSnap = false;
+                        file.str("");
+                        file.clear();
+                        auto time = std::chrono::system_clock::now();
+                        auto since_epoch = time.time_since_epoch();
+                        auto millis = std::chrono::duration_cast<std::chrono::milliseconds>(since_epoch);
+                        long now = millis.count();
+                        file << filename << now << suffix;
+                        cv::imwrite(file.str(), rgbMat);
+                        
+                    }
+                    
+                    
+                    if (cenarioAnimatedSprite.getCurrentFrame() > 150 && !specialEffect.isPlaying()) {
+                        specialEffect.restart();
+                        specialEffect.setLooped(true);
+                        specialEffect.play(end);
+                        specialEffect.setPosition(maskPosition);
+                    }
+                    
                 } else { //back
                     progress = 0;
                     lackProgressCount += 0.25;
@@ -1043,49 +1067,45 @@ int main(int argc, char **argv)
                     //sumindo aos poucos
                     idx = ((int)lackProgressCount % 4);
                     //std::cout  << "- " << lackProgressCount << "\tidx:" << idx  << std::endl;
-                    if (idx<4){
-                        if (currentAnimatedSpriteVec.at(idx).isPlaying())
-                            currentAnimatedSpriteVec.at(idx).stop();
-                        else if (lackProgressCount > 4)
+                    if (idx<4) {
+                        if (lackProgressCount > 4 || cenarioAnimatedSprite.getCurrentFrame() < FRAME_START_ANIM_CHARS)
+                        {
                             currentAnimatedSpriteVec.at(idx).setPosition(hidePosition);
+                            
+                            if (!reachedEnd && cenarioAnimatedSprite.getCurrentFrame() < 250){
+                                specialEffect.stop();
+                                specialEffect.setPosition(hidePosition);
+                            }
+                            
+                        }
+                        else if (currentAnimatedSpriteVec.at(idx).isPlaying())
+                        {
+                            currentAnimatedSpriteVec.at(idx).stop();
+                        }
                     }
-                    
-                    if (cenarioAnimatedSprite.getCurrentFrame() == 139 && !specialEffect.isPlaying()) {
-                        specialEffect.restart();
-                        specialEffect.setLooped(true);
-                        specialEffect.play(end);
-                        specialEffect.setPosition(maskPosition);
-                    }
-                    
                 }
                 
-                
-                
-                
-                
-                //std::cout << "------frame:" << cenarioAnimatedSprite.getCurrentFrame() << std::endl;
+                //std::cout << "------frame:" << cenarioAnimatedSprite.getCurrentFrame() << "newSnap: " << newSnap<< std::endl;
                 
                 if (perc == 1){
                     cenarioAnimatedSprite.stop();
                 }
                 
                 
-                if (cenarioAnimatedSprite.getCurrentFrame() < FRAME_START_ANIM_CHARS && !startAnimated.isPlaying()) {
-                    startAnimated.restart();
-                    startAnimated.setLooped(true);
-                    startAnimated.play(start);
-                    startAnimated.setPosition(maskPosition);
-                }
-                
-                
-                
-                if (!startAnimated.isPlaying()){
+                if (cenarioAnimatedSprite.getCurrentFrame() < FRAME_START_ANIM_CHARS) {
+                    if (!startAnimated.isPlaying()){
+                        startAnimated.restart();
+                        startAnimated.setLooped(true);
+                        startAnimated.play(start);
+                        startAnimated.setPosition(maskPosition);
+                    }
+                    
+                } else {
+                    startAnimated.stop();
                     startAnimated.setPosition(hidePosition);
                 }
                 
-                if (!specialEffect.isPlaying()){
-                    specialEffect.setPosition(hidePosition);
-                }
+                
                 if (!thunderEffect.isPlaying()){
                     thunderEffect.setPosition(hidePosition);
                 }
@@ -1132,7 +1152,7 @@ int main(int argc, char **argv)
         
         
         //personagens
-        for(int i = countAnimation; i<4; i++) {
+        for(int i = 0; i<4; i++) {
             currentAnimatedSpriteVec.at(i).update(frameTime);
             window.draw(currentAnimatedSpriteVec.at(i));
         }
@@ -1160,21 +1180,13 @@ int main(int argc, char **argv)
                     case sf::Keyboard::M:
                         break;
                     
-                    //snapshot
-                    case sf::Keyboard::T:
-                        file.str("");
-                        file.clear();
-                        file << filename << i_snap << suffix;
-                        cv::imwrite(file.str(), rgbMat);
-                        i_snap++;
-                        break;
-                    
                     // reset
                     case sf::Keyboard::R:
                         std::cout << "restart" << animatedSpriteSheets.size() << std::endl;
                         countAnimation += 4;
                         countChar = 0;
                         newAnimation = true;
+                        newSnap = true;
                         for(i = 0; i < animatedSpriteSheets.size(); i++){
                             animatedSpriteSheets.at(i)->setPosition(hidePosition);
                             animatedSpriteSheets.at(i)->stop();
