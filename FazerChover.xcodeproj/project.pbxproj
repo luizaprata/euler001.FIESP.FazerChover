@@ -33,6 +33,10 @@
 		6C96013D1AEC250C00733EF7 /* characters.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C96013C1AEC250C00733EF7 /* characters.png */; };
 		6C9601411AED55E100733EF7 /* cenario.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601401AED55E000733EF7 /* cenario.png */; };
 		6C9601501AED836300733EF7 /* trovao.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9601491AED836300733EF7 /* trovao.png */; };
+		6CAB57C81AF9556E008994C5 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CAB57C61AF9556E008994C5 /* tinyxml.cpp */; };
+		6CAB57CB1AF95996008994C5 /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CAB57C91AF95996008994C5 /* tinystr.cpp */; };
+		6CAB57CE1AF95DBF008994C5 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CAB57CC1AF95DBF008994C5 /* tinyxmlerror.cpp */; };
+		6CAB57CF1AF95DBF008994C5 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CAB57CD1AF95DBF008994C5 /* tinyxmlparser.cpp */; };
 		6CEABBED1AE8A8CC00A12DB1 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CEABBEC1AE8A8CC00A12DB1 /* ResourcePath.mm */; };
 		6CEABBF01AE8A8CC00A12DB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CEABBEF1AE8A8CC00A12DB1 /* main.cpp */; };
 		6CEABBF71AE8A8CC00A12DB1 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CEABBF61AE8A8CC00A12DB1 /* sansation.ttf */; };
@@ -70,6 +74,12 @@
 		6C96013C1AEC250C00733EF7 /* characters.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = characters.png; sourceTree = "<group>"; };
 		6C9601401AED55E000733EF7 /* cenario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cenario.png; sourceTree = "<group>"; };
 		6C9601491AED836300733EF7 /* trovao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trovao.png; sourceTree = "<group>"; };
+		6CAB57C61AF9556E008994C5 /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		6CAB57C71AF9556E008994C5 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		6CAB57C91AF95996008994C5 /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
+		6CAB57CA1AF95996008994C5 /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
+		6CAB57CC1AF95DBF008994C5 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		6CAB57CD1AF95DBF008994C5 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		6CEABBE71AE8A8CC00A12DB1 /* FazerChover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FazerChover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CEABBEB1AE8A8CC00A12DB1 /* FazerChover-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FazerChover-Info.plist"; sourceTree = "<group>"; };
 		6CEABBEC1AE8A8CC00A12DB1 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -161,6 +171,12 @@
 				6C3BB6CD1AE983DF005BD3BF /* Animation.cpp */,
 				6CEABBEC1AE8A8CC00A12DB1 /* ResourcePath.mm */,
 				6CEABBEE1AE8A8CC00A12DB1 /* ResourcePath.hpp */,
+				6CAB57C61AF9556E008994C5 /* tinyxml.cpp */,
+				6CAB57C71AF9556E008994C5 /* tinyxml.h */,
+				6CAB57C91AF95996008994C5 /* tinystr.cpp */,
+				6CAB57CA1AF95996008994C5 /* tinystr.h */,
+				6CAB57CC1AF95DBF008994C5 /* tinyxmlerror.cpp */,
+				6CAB57CD1AF95DBF008994C5 /* tinyxmlparser.cpp */,
 			);
 			path = FazerChover;
 			sourceTree = "<group>";
@@ -281,8 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CEABBF01AE8A8CC00A12DB1 /* main.cpp in Sources */,
+				6CAB57CB1AF95996008994C5 /* tinystr.cpp in Sources */,
+				6CAB57C81AF9556E008994C5 /* tinyxml.cpp in Sources */,
 				6C3BB6CC1AE98311005BD3BF /* AnimatedSprite.cpp in Sources */,
+				6CAB57CF1AF95DBF008994C5 /* tinyxmlparser.cpp in Sources */,
 				6C3BB6CF1AE983DF005BD3BF /* Animation.cpp in Sources */,
+				6CAB57CE1AF95DBF008994C5 /* tinyxmlerror.cpp in Sources */,
 				6CEABBED1AE8A8CC00A12DB1 /* ResourcePath.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

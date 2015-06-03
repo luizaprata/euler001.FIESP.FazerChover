@@ -139,7 +139,7 @@ int randInt(int min = 0, int max = 1) {
 int main(int argc, char **argv)
 {
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode(1024, 768), "Fazer Chover");
+    sf::RenderWindow window(sf::VideoMode(1024, 768), "Fazer Chover", sf::Style::Close);
     window.setFramerateLimit(10);
     
     // Set the Icon
@@ -165,7 +165,7 @@ int main(int argc, char **argv)
     
     
     double FPS = 0.2;
-    double FRAME_START_ANIM_CHARS = 14;
+    double FRAME_START_ANIM_CHARS = 32;
     
     
     
@@ -334,6 +334,7 @@ int main(int argc, char **argv)
     end.addFrame(sf::IntRect(666,177,222,177));
     end.addFrame(sf::IntRect(444,177,222,177));
     end.addFrame(sf::IntRect(444,177,222,177));
+    end.addFrame(sf::IntRect(444,177,222,177));
     end.addFrame(sf::IntRect(888,177,222,177));
     end.addFrame(sf::IntRect(1110,177,222,177));
     end.addFrame(sf::IntRect(1332,177,222,177));
@@ -354,7 +355,7 @@ int main(int argc, char **argv)
     end.addFrame(sf::IntRect(666,531,222,177));
     end.addFrame(sf::IntRect(888,531,222,177));
     end.addFrame(sf::IntRect(1110,531,222,177));
-    end.addFrame(sf::IntRect(1332,531,222,177));
+    end.addFrame(sf::IntRect(1110,531,222,177));
     end.addFrame(sf::IntRect(1332,531,222,177));
     end.addFrame(sf::IntRect(1554,531,222,177));
     end.addFrame(sf::IntRect(1776,531,222,177));
@@ -365,7 +366,7 @@ int main(int argc, char **argv)
     end.addFrame(sf::IntRect(888,708,222,177));
     end.addFrame(sf::IntRect(1110,708,222,177));
     end.addFrame(sf::IntRect(1332,708,222,177));
-    end.addFrame(sf::IntRect(1554,708,222,177));
+    end.addFrame(sf::IntRect(1332,708,222,177));
     end.addFrame(sf::IntRect(1554,708,222,177));
     end.addFrame(sf::IntRect(1776,708,222,177));
     end.addFrame(sf::IntRect(0,885,222,177));
@@ -383,11 +384,11 @@ int main(int argc, char **argv)
     end.addFrame(sf::IntRect(666,1062,222,177));
     end.addFrame(sf::IntRect(888,1062,222,177));
     end.addFrame(sf::IntRect(1110,1062,222,177));
-    end.addFrame(sf::IntRect(1332,1062,222,177));
     end.addFrame(sf::IntRect(0,0,222,177));
     end.addFrame(sf::IntRect(0,0,222,177));
     end.addFrame(sf::IntRect(0,0,222,177));
     end.addFrame(sf::IntRect(0,0,222,177));
+
 
     
     
@@ -439,11 +440,6 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(1776,0,222,170));
     cenario.addFrame(sf::IntRect(1998,0,222,170));
     cenario.addFrame(sf::IntRect(2220,0,222,170));
-    cenario.addFrame(sf::IntRect(2220,0,222,170));
-    cenario.addFrame(sf::IntRect(2220,0,222,170));
-    cenario.addFrame(sf::IntRect(2220,0,222,170));
-    cenario.addFrame(sf::IntRect(2442,0,222,170));
-    cenario.addFrame(sf::IntRect(2220,0,222,170));
     cenario.addFrame(sf::IntRect(2442,0,222,170));
     cenario.addFrame(sf::IntRect(2664,0,222,170));
     cenario.addFrame(sf::IntRect(2886,0,222,170));
@@ -456,12 +452,11 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(444,170,222,170));
     cenario.addFrame(sf::IntRect(666,170,222,170));
     cenario.addFrame(sf::IntRect(888,170,222,170));
-    cenario.addFrame(sf::IntRect(666,170,222,170));
-    cenario.addFrame(sf::IntRect(888,170,222,170));
     cenario.addFrame(sf::IntRect(1110,170,222,170));
     cenario.addFrame(sf::IntRect(1332,170,222,170));
     cenario.addFrame(sf::IntRect(1554,170,222,170));
     cenario.addFrame(sf::IntRect(1776,170,222,170));
+    cenario.addFrame(sf::IntRect(1998,170,222,170));
     cenario.addFrame(sf::IntRect(1998,170,222,170));
     cenario.addFrame(sf::IntRect(2220,170,222,170));
     cenario.addFrame(sf::IntRect(2442,170,222,170));
@@ -475,6 +470,13 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(222,340,222,170));
     cenario.addFrame(sf::IntRect(444,340,222,170));
     cenario.addFrame(sf::IntRect(666,340,222,170));
+    cenario.addFrame(sf::IntRect(444,340,222,170));
+    cenario.addFrame(sf::IntRect(666,340,222,170));
+    cenario.addFrame(sf::IntRect(444,340,222,170));
+    cenario.addFrame(sf::IntRect(222,340,222,170));
+    cenario.addFrame(sf::IntRect(444,340,222,170));
+    cenario.addFrame(sf::IntRect(222,340,222,170));
+    cenario.addFrame(sf::IntRect(444,340,222,170));
     cenario.addFrame(sf::IntRect(888,340,222,170));
     cenario.addFrame(sf::IntRect(1110,340,222,170));
     cenario.addFrame(sf::IntRect(1332,340,222,170));
@@ -483,6 +485,7 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(1998,340,222,170));
     cenario.addFrame(sf::IntRect(2220,340,222,170));
     cenario.addFrame(sf::IntRect(2442,340,222,170));
+    cenario.addFrame(sf::IntRect(2220,340,222,170));
     cenario.addFrame(sf::IntRect(2664,340,222,170));
     cenario.addFrame(sf::IntRect(2886,340,222,170));
     cenario.addFrame(sf::IntRect(3108,340,222,170));
@@ -497,52 +500,70 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(1110,510,222,170));
     cenario.addFrame(sf::IntRect(1332,510,222,170));
     cenario.addFrame(sf::IntRect(1554,510,222,170));
+    cenario.addFrame(sf::IntRect(1332,510,222,170));
     cenario.addFrame(sf::IntRect(1776,510,222,170));
     cenario.addFrame(sf::IntRect(1998,510,222,170));
     cenario.addFrame(sf::IntRect(2220,510,222,170));
     cenario.addFrame(sf::IntRect(2442,510,222,170));
+    cenario.addFrame(sf::IntRect(2220,510,222,170));
     cenario.addFrame(sf::IntRect(2664,510,222,170));
     cenario.addFrame(sf::IntRect(2886,510,222,170));
+    cenario.addFrame(sf::IntRect(2664,510,222,170));
     cenario.addFrame(sf::IntRect(3108,510,222,170));
     cenario.addFrame(sf::IntRect(3330,510,222,170));
+    cenario.addFrame(sf::IntRect(3108,510,222,170));
     cenario.addFrame(sf::IntRect(3552,510,222,170));
     cenario.addFrame(sf::IntRect(3774,510,222,170));
+    cenario.addFrame(sf::IntRect(3552,510,222,170));
     cenario.addFrame(sf::IntRect(0,680,222,170));
     cenario.addFrame(sf::IntRect(222,680,222,170));
+    cenario.addFrame(sf::IntRect(0,680,222,170));
     cenario.addFrame(sf::IntRect(444,680,222,170));
     cenario.addFrame(sf::IntRect(666,680,222,170));
     cenario.addFrame(sf::IntRect(888,680,222,170));
     cenario.addFrame(sf::IntRect(1110,680,222,170));
+    cenario.addFrame(sf::IntRect(888,680,222,170));
     cenario.addFrame(sf::IntRect(1332,680,222,170));
     cenario.addFrame(sf::IntRect(1554,680,222,170));
+    cenario.addFrame(sf::IntRect(1332,680,222,170));
     cenario.addFrame(sf::IntRect(1776,680,222,170));
     cenario.addFrame(sf::IntRect(1998,680,222,170));
     cenario.addFrame(sf::IntRect(2220,680,222,170));
     cenario.addFrame(sf::IntRect(2442,680,222,170));
     cenario.addFrame(sf::IntRect(2664,680,222,170));
+    cenario.addFrame(sf::IntRect(2442,680,222,170));
     cenario.addFrame(sf::IntRect(2886,680,222,170));
     cenario.addFrame(sf::IntRect(3108,680,222,170));
+    cenario.addFrame(sf::IntRect(2886,680,222,170));
     cenario.addFrame(sf::IntRect(3330,680,222,170));
     cenario.addFrame(sf::IntRect(3552,680,222,170));
     cenario.addFrame(sf::IntRect(3774,680,222,170));
     cenario.addFrame(sf::IntRect(0,850,222,170));
     cenario.addFrame(sf::IntRect(222,850,222,170));
+    cenario.addFrame(sf::IntRect(0,850,222,170));
     cenario.addFrame(sf::IntRect(444,850,222,170));
     cenario.addFrame(sf::IntRect(666,850,222,170));
+    cenario.addFrame(sf::IntRect(444,850,222,170));
     cenario.addFrame(sf::IntRect(888,850,222,170));
     cenario.addFrame(sf::IntRect(1110,850,222,170));
     cenario.addFrame(sf::IntRect(1332,850,222,170));
     cenario.addFrame(sf::IntRect(1554,850,222,170));
+    cenario.addFrame(sf::IntRect(1332,850,222,170));
     cenario.addFrame(sf::IntRect(1776,850,222,170));
     cenario.addFrame(sf::IntRect(1998,850,222,170));
+    cenario.addFrame(sf::IntRect(1776,850,222,170));
     cenario.addFrame(sf::IntRect(2220,850,222,170));
     cenario.addFrame(sf::IntRect(2442,850,222,170));
+    cenario.addFrame(sf::IntRect(2220,850,222,170));
     cenario.addFrame(sf::IntRect(2664,850,222,170));
     cenario.addFrame(sf::IntRect(2886,850,222,170));
+    cenario.addFrame(sf::IntRect(2664,850,222,170));
     cenario.addFrame(sf::IntRect(3108,850,222,170));
     cenario.addFrame(sf::IntRect(3330,850,222,170));
+    cenario.addFrame(sf::IntRect(3108,850,222,170));
     cenario.addFrame(sf::IntRect(3552,850,222,170));
     cenario.addFrame(sf::IntRect(3774,850,222,170));
+    cenario.addFrame(sf::IntRect(3552,850,222,170));
     cenario.addFrame(sf::IntRect(0,1020,222,170));
     cenario.addFrame(sf::IntRect(222,1020,222,170));
     cenario.addFrame(sf::IntRect(444,1020,222,170));
@@ -553,10 +574,13 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(1554,1020,222,170));
     cenario.addFrame(sf::IntRect(1776,1020,222,170));
     cenario.addFrame(sf::IntRect(1998,1020,222,170));
+    cenario.addFrame(sf::IntRect(1776,1020,222,170));
     cenario.addFrame(sf::IntRect(2220,1020,222,170));
     cenario.addFrame(sf::IntRect(2442,1020,222,170));
+    cenario.addFrame(sf::IntRect(2220,1020,222,170));
     cenario.addFrame(sf::IntRect(2664,1020,222,170));
     cenario.addFrame(sf::IntRect(2886,1020,222,170));
+    cenario.addFrame(sf::IntRect(2664,1020,222,170));
     cenario.addFrame(sf::IntRect(3108,1020,222,170));
     cenario.addFrame(sf::IntRect(3330,1020,222,170));
     cenario.addFrame(sf::IntRect(3552,1020,222,170));
@@ -710,20 +734,10 @@ int main(int argc, char **argv)
     cenario.addFrame(sf::IntRect(444,2550,222,170));
     cenario.addFrame(sf::IntRect(666,2550,222,170));
     cenario.addFrame(sf::IntRect(888,2550,222,170));
-    cenario.addFrame(sf::IntRect(1110,2550,222,170));
-    cenario.addFrame(sf::IntRect(1332,2550,222,170));
-    cenario.addFrame(sf::IntRect(1554,2550,222,170));
-    cenario.addFrame(sf::IntRect(1554,2550,222,170));
-    cenario.addFrame(sf::IntRect(1776,2550,222,170));
-    cenario.addFrame(sf::IntRect(1998,2550,222,170));
-    cenario.addFrame(sf::IntRect(2220,2550,222,170));
-    cenario.addFrame(sf::IntRect(2442,2550,222,170));
-    cenario.addFrame(sf::IntRect(2664,2550,222,170));
-    cenario.addFrame(sf::IntRect(2886,2550,222,170));
-    cenario.addFrame(sf::IntRect(3108,2550,222,170));
-    cenario.addFrame(sf::IntRect(3108,2550,222,170));
-    cenario.addFrame(sf::IntRect(3108,2550,222,170));
 
+
+
+  
 
     AnimatedSprite cenarioAnimatedSprite = AnimatedSprite(sf::seconds(FPS), true, false);
     cenarioAnimatedSprite.setPosition(maskPosition);
@@ -966,6 +980,8 @@ int main(int argc, char **argv)
     
     bool reachedEnd = false;
     
+    bool isFullscreen = false;
+    
     //while
     while (window.isOpen())
     {
@@ -1030,14 +1046,14 @@ int main(int argc, char **argv)
                     cenarioAnimatedSprite.setPlayReverse(false);
                     cenarioAnimatedSprite.play(cenario);
                     
-                    if (cenarioAnimatedSprite.getCurrentFrame() == 15 && !thunderEffect.isPlaying()) {
+                    if (cenarioAnimatedSprite.getCurrentFrame() == 30 && !thunderEffect.isPlaying()) {
                         thunderEffect.restart();
                         thunderEffect.setLooped(false);
                         thunderEffect.play(trovao);
                         thunderEffect.setPosition(maskPosition);
                     }
                     
-                    if (newSnap && cenarioAnimatedSprite.getCurrentFrame() == 20) {
+                    if (newSnap && cenarioAnimatedSprite.getCurrentFrame() == 30) {
                         newSnap = false;
                         file.str("");
                         file.clear();
@@ -1053,7 +1069,7 @@ int main(int argc, char **argv)
                     }
                     
                     
-                    if (cenarioAnimatedSprite.getCurrentFrame() > 150 && !specialEffect.isPlaying()) {
+                    if (cenarioAnimatedSprite.getCurrentFrame() > 200 && !specialEffect.isPlaying()) {
                         specialEffect.restart();
                         specialEffect.setLooped(true);
                         specialEffect.play(end);
@@ -1215,6 +1231,14 @@ int main(int argc, char **argv)
                             namedWindow("depth", CV_WINDOW_AUTOSIZE);
                             namedWindow("diff", CV_WINDOW_AUTOSIZE);
                         }
+                        break;
+                        
+                    case sf::Keyboard::F:
+                        isFullscreen = !isFullscreen;
+                        if (isFullscreen)
+                            window.create(sf::VideoMode(800, 600), "Fazer Chover", sf::Style::Fullscreen);
+                        else
+                            window.create(sf::VideoMode(800, 600), "Fazer Chover", sf::Style::Close);
                         break;
                     
                     // UP
